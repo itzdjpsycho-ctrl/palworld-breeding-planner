@@ -20,7 +20,7 @@ function ParentCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const pal: Pal = PALS[idx];
-  const canExpand = !pal.wildCatchable && depth < MAX_DEPTH && !ancestors.includes(idx);
+  const canExpand = depth < MAX_DEPTH && !ancestors.includes(idx);
 
   return (
     <div className="parent-card">
