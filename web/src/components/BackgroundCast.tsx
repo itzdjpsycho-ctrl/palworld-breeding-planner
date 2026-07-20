@@ -3,8 +3,8 @@
 // CDN (same source/license as the pal icons used throughout the app — see README).
 const CAST = [
   { name: 'Katress', image: 'https://static.wikia.nocookie.net/palworld/images/8/8d/Katress.png', corner: 'tl' },
-  { name: 'Paladius', image: 'https://static.wikia.nocookie.net/palworld/images/b/b8/Paladius.png', corner: 'tr' },
-  { name: 'Warsect', image: 'https://static.wikia.nocookie.net/palworld/images/3/3a/Warsect.png', corner: 'bl' },
+  { name: 'Sekhmet', image: 'https://static.wikia.nocookie.net/palworld/images/9/9a/Sekhmet.png', corner: 'tr' },
+  { name: 'Lovander', image: 'https://static.wikia.nocookie.net/palworld/images/a/af/Lovander.png', corner: 'bl' },
   { name: 'Wixen', image: 'https://static.wikia.nocookie.net/palworld/images/f/fd/Wixen.png', corner: 'br' },
 ] as const;
 
