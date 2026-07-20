@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { PALS, indexOfId } from '../lib/breeding';
 import { PalPicker } from '../components/PalPicker';
-import { TypeBadges } from '../components/TypeBadge';
+import { PalDetailHeader } from '../components/PalDetailHeader';
 import { BreedingTree } from '../components/BreedingTree';
 
 export function BreedingPlanPage() {
@@ -30,11 +30,7 @@ export function BreedingPlanPage() {
       {target && (
         <div className="plan-result">
           <div className="plan-target">
-            <h2>{target.name}</h2>
-            <TypeBadges types={target.types} />
-            {!target.wildCatchable && (
-              <div className="tag tag-breed">Breeding-exclusive species</div>
-            )}
+            <PalDetailHeader pal={target} />
           </div>
           <BreedingTree key={targetIdx} targetIdx={targetIdx as number} />
         </div>

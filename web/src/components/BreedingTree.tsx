@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { PALS, pairOptionsFor, type Pal, type PairOption } from '../lib/breeding';
 import { TypeBadges } from './TypeBadge';
+import { PalImage } from './PalImage';
 
 const PAGE_SIZE = 12;
 const MAX_DEPTH = 6;
@@ -25,7 +26,8 @@ function ParentCard({
   return (
     <div className="parent-card">
       <div className="parent-card-head">
-        <div>
+        <PalImage pal={pal} size={40} />
+        <div className="parent-card-info">
           <div className="parent-card-name">{pal.name}</div>
           <TypeBadges types={pal.types} />
         </div>

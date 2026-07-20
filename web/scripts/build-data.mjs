@@ -5,6 +5,7 @@
 //  - ../../palworld_pals_full.json      (full pal stats incl. zukanIndexSuffix, user-provided)
 //  - ../../data-src/Pals.csv            (289 pal names, row/column order for the matrix)
 //  - ../../data-src/AllCombos.csv       (289x289 breeding outcome matrix, semicolon separated)
+//  - ../../data-src/Images.csv          (name -> icon URL, hosted on the Palworld Fandom wiki CDN)
 //
 // The matrix (MIT licensed, from github.com/beckerfelipee/PalworldBreedingCalculator) is the
 // ground truth for breeding outcomes: it already bakes in Pocketpair's special-combo overrides
@@ -55,6 +56,19 @@ function loadFullJson() {
   return JSON.parse(raw);
 }
 
+function loadImages() {
+  const lines = readFileSync(path.join(ROOT, 'data-src', 'Images.csv'), 'utf8')
+    .replace(/^﻿/, '')
+    .trim()
+    .split(/\r?\n/);
+  const map = new Map();
+  for (const line of lines) {
+    const idx = line.indexOf(',');
+    map.set(line.slice(0, idx).trim(), line.slice(idx + 1).trim());
+  }
+  return map;
+}
+
 function loadMatrix() {
   const names = readFileSync(path.join(ROOT, 'data-src', 'Pals.csv'), 'utf8')
     .replace(/^﻿/, '')
@@ -72,6 +86,7 @@ function loadMatrix() {
 function main() {
   const breedingRows = loadBreedingCsv();
   const fullJson = loadFullJson();
+  const images = loadImages();
   const { names: matrixNames, rows: matrix } = loadMatrix();
 
   const byName = new Map(breedingRows.map((r) => [r.name, r]));
@@ -100,6 +115,8 @@ function main() {
       isBoss: !!fullRow.isBoss,
       breedingExclusive,
       wildCatchable: !breedingExclusive,
+      description: fullRow.description ?? '',
+      image: images.get(matrixName) ?? null,
     };
   });
 

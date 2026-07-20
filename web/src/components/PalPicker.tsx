@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { PALS, type Pal } from '../lib/breeding';
 import { TypeBadges } from './TypeBadge';
+import { PalImage } from './PalImage';
 
 interface Props {
   value: number | null;
@@ -39,17 +40,20 @@ export function PalPicker({ value, onChange, placeholder }: Props) {
 
   return (
     <div className="pal-picker" ref={containerRef}>
-      <input
-        type="text"
-        className="pal-picker-input"
-        placeholder={placeholder ?? 'Search for a Pal…'}
-        value={open ? query : (selected?.name ?? '')}
-        onFocus={() => {
-          setOpen(true);
-          setQuery('');
-        }}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <div className="pal-picker-input-wrap">
+        {selected && !open && <PalImage pal={selected} size={24} />}
+        <input
+          type="text"
+          className="pal-picker-input"
+          placeholder={placeholder ?? 'Search for a Pal…'}
+          value={open ? query : (selected?.name ?? '')}
+          onFocus={() => {
+            setOpen(true);
+            setQuery('');
+          }}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
       {open && (
         <ul className="pal-picker-list">
           {results.length === 0 && <li className="pal-picker-empty">No matches</li>}
@@ -64,6 +68,7 @@ export function PalPicker({ value, onChange, placeholder }: Props) {
                   setQuery('');
                 }}
               >
+                <PalImage pal={p} size={28} />
                 <span className="pal-picker-option-name">{p.name}</span>
                 <TypeBadges types={p.types} />
               </button>

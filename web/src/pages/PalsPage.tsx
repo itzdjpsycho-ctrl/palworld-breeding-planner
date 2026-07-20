@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PALS } from '../lib/breeding';
 import { TypeBadges } from '../components/TypeBadge';
+import { PalImage } from '../components/PalImage';
 
 export function PalsPage() {
   const [search, setSearch] = useState('');
@@ -53,8 +54,13 @@ export function PalsPage() {
       <div className="pals-grid">
         {filtered.map((p) => (
           <Link key={p.id} to={`/breeding-plan?target=${p.id}`} className="pal-grid-card">
-            <div className="parent-card-name">{p.name}</div>
-            <TypeBadges types={p.types} />
+            <div className="pal-grid-card-head">
+              <PalImage pal={p} size={44} />
+              <div>
+                <div className="parent-card-name">{p.name}</div>
+                <TypeBadges types={p.types} />
+              </div>
+            </div>
             <div className="pal-grid-card-footer">
               <span className="rarity">★ {p.rarity}</span>
               {!p.wildCatchable && <span className="tag tag-breed tag-sm">Breeding-only</span>}

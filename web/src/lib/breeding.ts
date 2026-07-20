@@ -11,6 +11,8 @@ export interface Pal {
   isBoss: boolean;
   breedingExclusive: boolean;
   wildCatchable: boolean;
+  description: string;
+  image: string | null;
 }
 
 export type ParentPair = [number, number];

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { PALS, breedChild } from '../lib/breeding';
 import { PalPicker } from '../components/PalPicker';
-import { TypeBadges } from '../components/TypeBadge';
+import { PalDetailHeader } from '../components/PalDetailHeader';
 
 export function PairCalculatorPage() {
   const [aIdx, setAIdx] = useState<number | null>(null);
@@ -24,10 +24,7 @@ export function PairCalculatorPage() {
 
       {child && (
         <div className="plan-target pair-calc-result">
-          <span className="result-label">Produces</span>
-          <h2>{child.name}</h2>
-          <TypeBadges types={child.types} />
-          {!child.wildCatchable && <div className="tag tag-breed">Breeding-exclusive species</div>}
+          <PalDetailHeader pal={child} label="Produces" />
         </div>
       )}
 

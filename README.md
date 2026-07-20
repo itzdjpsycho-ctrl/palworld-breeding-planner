@@ -46,5 +46,9 @@ extracted from Palworld's game files by
 Pocketpair's special-combo overrides directly, which a formula-only approach can't
 reproduce.
 
-Not affiliated with Pocketpair. Palworld and all Pal names/data are property of
+Pal icon images (`data-src/Images.csv`) are hotlinked from the
+[Palworld Fandom wiki](https://palworld.fandom.com/)'s static asset CDN, which is why
+they load from `static.wikia.nocookie.net` rather than being bundled in this repo.
+
+Not affiliated with Pocketpair. Palworld and all Pal names/data/images are property of
 Pocketpair, Inc.

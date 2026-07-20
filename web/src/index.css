@@ -173,6 +173,23 @@ a {
   border: 1px solid;
 }
 
+/* Pal images */
+.pal-image {
+  border-radius: 8px;
+  object-fit: contain;
+  background: var(--accent-bg);
+  flex-shrink: 0;
+}
+
+.pal-image-fallback {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
 /* Pal picker */
 .pal-picker {
   position: relative;
@@ -180,7 +197,34 @@ a {
   max-width: 340px;
 }
 
-.pal-picker-input,
+.pal-picker-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.pal-picker-input-wrap:focus-within {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 1px;
+}
+
+.pal-picker-input {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 4px 0;
+  color: var(--text-h);
+}
+
+.pal-picker-input:focus {
+  outline: none;
+}
+
 .pair-search,
 select {
   width: 100%;
@@ -191,7 +235,6 @@ select {
   color: var(--text-h);
 }
 
-.pal-picker-input:focus,
 .pair-search:focus,
 select:focus {
   outline: 2px solid var(--accent-border);
@@ -225,7 +268,6 @@ select:focus {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px;
   text-align: left;
   background: none;
@@ -256,9 +298,37 @@ select:focus {
   border-bottom: 1px solid var(--border);
 }
 
-.plan-target h2 {
-  display: inline-block;
-  margin-right: 8px;
+.pal-detail-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.pal-detail-header .pal-image,
+.pal-detail-header .pal-image-fallback {
+  border-radius: 14px;
+  font-size: 28px;
+}
+
+.pal-detail-info h2 {
+  margin: 0 0 4px;
+}
+
+.pal-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.pal-detail-description {
+  margin-top: 10px;
+  max-width: 60ch;
+  font-size: 14px;
+  color: var(--text);
 }
 
 .tag {
@@ -344,8 +414,17 @@ select:focus {
 .parent-card-head {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 8px;
+}
+
+.parent-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.parent-card-head .rarity {
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 .parent-card-name {
@@ -467,6 +546,12 @@ select:focus {
 
 .pal-grid-card:hover {
   border-color: var(--accent-border);
+}
+
+.pal-grid-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .pal-grid-card-footer {
