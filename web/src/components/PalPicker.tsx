@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { PALS, type Pal } from '../lib/breeding';
 import { TypeBadges } from './TypeBadge';
 
@@ -24,14 +24,21 @@ export function PalPicker({ value, onChange, placeholder }: Props) {
       .slice(0, 40);
   }, [query]);
 
+  // Close on outside click. A document-level listener (rather than the input's
+  // onBlur/relatedTarget) is used because Safari/Firefox don't reliably focus
+  // <button> elements on click, which makes relatedTarget-based blur detection
+  // close the list before the option's click event has a chance to fire.
+  useEffect(() => {
+    if (!open) return;
+    function handlePointerDown(e: MouseEvent) {
+      if (!containerRef.current?.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handlePointerDown);
+    return () => document.removeEventListener('mousedown', handlePointerDown);
+  }, [open]);
+
   return (
-    <div
-      className="pal-picker"
-      ref={containerRef}
-      onBlur={(e) => {
-        if (!containerRef.current?.contains(e.relatedTarget as Node)) setOpen(false);
-      }}
-    >
+    <div className="pal-picker" ref={containerRef}>
       <input
         type="text"
         className="pal-picker-input"
