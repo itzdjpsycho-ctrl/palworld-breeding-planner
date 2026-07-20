@@ -14,3 +14,8 @@ export const TYPE_COLORS: Record<string, string> = {
 export function typeColor(type: string): string {
   return TYPE_COLORS[type] || '#6B7280';
 }
+
+/** The color representing a Pal's primary (first-listed) type. */
+export function primaryTypeColor(types: string[]): string {
+  return typeColor(types[0] ?? '');
+}

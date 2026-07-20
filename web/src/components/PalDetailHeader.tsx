@@ -1,15 +1,12 @@
-import type { CSSProperties } from 'react';
 import type { Pal } from '../lib/breeding';
 import { PalImage } from './PalImage';
 import { TypeBadges } from './TypeBadge';
 import { RarityBadge } from './RarityBadge';
-import { rarityTier } from '../lib/rarity';
+import { glassStyle } from '../lib/glass';
 
 export function PalDetailHeader({ pal, label }: { pal: Pal; label?: string }) {
-  const tierColor = rarityTier(pal.rarity).color;
-  const style = { '--tier-glow': `${tierColor}33` } as CSSProperties;
   return (
-    <div className="pal-detail-header" style={style}>
+    <div className="pal-detail-header" style={glassStyle(pal.types)}>
       <PalImage pal={pal} size={72} />
       <div className="pal-detail-info">
         {label && <span className="result-label">{label}</span>}

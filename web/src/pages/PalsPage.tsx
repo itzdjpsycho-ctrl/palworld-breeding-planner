@@ -1,15 +1,27 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PALS } from '../lib/breeding';
+import { PALS, type Pal } from '../lib/breeding';
 import { TypeBadges } from '../components/TypeBadge';
 import { PalImage } from '../components/PalImage';
 import { RarityBadge } from '../components/RarityBadge';
-import { rarityTier } from '../lib/rarity';
+import { glassStyle } from '../lib/glass';
+
+type SortKey = 'name-asc' | 'name-desc' | 'rarity-asc' | 'rarity-desc' | 'type';
+
+const SORTERS: Record<SortKey, (a: Pal, b: Pal) => number> = {
+  'name-asc': (a, b) => a.name.localeCompare(b.name),
+  'name-desc': (a, b) => b.name.localeCompare(a.name),
+  'rarity-asc': (a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name),
+  'rarity-desc': (a, b) => b.rarity - a.rarity || a.name.localeCompare(b.name),
+  type: (a, b) =>
+    (a.types[0] ?? '').localeCompare(b.types[0] ?? '') || a.name.localeCompare(b.name),
+};
 
 export function PalsPage() {
   const [search, setSearch] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
   const [wildOnly, setWildOnly] = useState(false);
+  const [sortKey, setSortKey] = useState<SortKey>('name-asc');
 
   const allTypes = useMemo(() => {
     const s = new Set<string>();
@@ -24,8 +36,8 @@ export function PalsPage() {
       if (typeFilter && !p.types.includes(typeFilter)) return false;
       if (wildOnly && !p.wildCatchable) return false;
       return true;
-    }).sort((a, b) => a.name.localeCompare(b.name));
-  }, [search, typeFilter, wildOnly]);
+    }).sort(SORTERS[sortKey]);
+  }, [search, typeFilter, wildOnly, sortKey]);
 
   return (
     <div className="page">
@@ -47,6 +59,13 @@ export function PalsPage() {
             </option>
           ))}
         </select>
+        <select value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)}>
+          <option value="name-asc">Name (A → Z)</option>
+          <option value="name-desc">Name (Z → A)</option>
+          <option value="rarity-asc">Rarity (low → high)</option>
+          <option value="rarity-desc">Rarity (high → low)</option>
+          <option value="type">Type</option>
+        </select>
         <label className="easy-toggle">
           <input type="checkbox" checked={wildOnly} onChange={(e) => setWildOnly(e.target.checked)} />
           Wild-catchable only
@@ -59,10 +78,10 @@ export function PalsPage() {
             key={p.id}
             to={`/breeding-plan?target=${p.id}`}
             className="pal-grid-card"
-            style={{ borderTopColor: rarityTier(p.rarity).color }}
+            style={glassStyle(p.types)}
           >
             <div className="pal-grid-card-head">
-              <PalImage pal={p} size={44} />
+              <PalImage pal={p} size={56} />
               <div>
                 <div className="parent-card-name">{p.name}</div>
                 <TypeBadges types={p.types} />

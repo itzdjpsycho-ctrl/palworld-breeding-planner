@@ -6,13 +6,20 @@ import { PalsPage } from './pages/PalsPage';
 function App() {
   return (
     <div className="app">
+      <div className="app-bg" aria-hidden="true">
+        <span className="bg-blob bg-blob-1" />
+        <span className="bg-blob bg-blob-2" />
+        <span className="bg-blob bg-blob-3" />
+        <span className="bg-blob bg-blob-4" />
+      </div>
       <header className="app-header">
         <div className="app-header-inner">
+          <div className="header-side" />
           <span className="brand">
             <span className="brand-mark">🥚</span>
             Palworld Breeding Planner
           </span>
-          <nav>
+          <nav className="header-side header-nav">
             <NavLink to="/breeding-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
               Breeding Plan
             </NavLink>
