@@ -8,7 +8,10 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="app-header-inner">
-          <span className="brand">Palworld Breeding Planner</span>
+          <span className="brand">
+            <span className="brand-mark">🥚</span>
+            Palworld Breeding Planner
+          </span>
           <nav>
             <NavLink to="/breeding-plan" className={({ isActive }) => (isActive ? 'active' : '')}>
               Breeding Plan

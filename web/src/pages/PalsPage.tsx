@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { PALS } from '../lib/breeding';
 import { TypeBadges } from '../components/TypeBadge';
 import { PalImage } from '../components/PalImage';
+import { RarityBadge } from '../components/RarityBadge';
+import { rarityTier } from '../lib/rarity';
 
 export function PalsPage() {
   const [search, setSearch] = useState('');
@@ -53,7 +55,12 @@ export function PalsPage() {
       <p className="pals-count">{filtered.length} Pals shown.</p>
       <div className="pals-grid">
         {filtered.map((p) => (
-          <Link key={p.id} to={`/breeding-plan?target=${p.id}`} className="pal-grid-card">
+          <Link
+            key={p.id}
+            to={`/breeding-plan?target=${p.id}`}
+            className="pal-grid-card"
+            style={{ borderTopColor: rarityTier(p.rarity).color }}
+          >
             <div className="pal-grid-card-head">
               <PalImage pal={p} size={44} />
               <div>
@@ -62,7 +69,7 @@ export function PalsPage() {
               </div>
             </div>
             <div className="pal-grid-card-footer">
-              <span className="rarity">★ {p.rarity}</span>
+              <RarityBadge rarity={p.rarity} compact />
               {!p.wildCatchable && <span className="tag tag-breed tag-sm">Breeding-only</span>}
             </div>
           </Link>

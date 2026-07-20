@@ -2,13 +2,11 @@ import { useMemo, useState } from 'react';
 import { PALS, pairOptionsFor, type Pal, type PairOption } from '../lib/breeding';
 import { TypeBadges } from './TypeBadge';
 import { PalImage } from './PalImage';
+import { RarityBadge } from './RarityBadge';
+import { rarityTier } from '../lib/rarity';
 
 const PAGE_SIZE = 12;
 const MAX_DEPTH = 6;
-
-function RarityDots({ rarity }: { rarity: number }) {
-  return <span className="rarity" title={`Rarity ${rarity}`}>★ {rarity}</span>;
-}
 
 function ParentCard({
   idx,
@@ -22,16 +20,17 @@ function ParentCard({
   const [expanded, setExpanded] = useState(false);
   const pal: Pal = PALS[idx];
   const canExpand = depth < MAX_DEPTH && !ancestors.includes(idx);
+  const tierColor = rarityTier(pal.rarity).color;
 
   return (
-    <div className="parent-card">
+    <div className="parent-card" style={{ borderLeftColor: tierColor }}>
       <div className="parent-card-head">
         <PalImage pal={pal} size={40} />
         <div className="parent-card-info">
           <div className="parent-card-name">{pal.name}</div>
           <TypeBadges types={pal.types} />
         </div>
-        <RarityDots rarity={pal.rarity} />
+        <RarityBadge rarity={pal.rarity} compact />
       </div>
       {pal.wildCatchable ? (
         <div className="tag tag-wild">Catchable in the wild</div>

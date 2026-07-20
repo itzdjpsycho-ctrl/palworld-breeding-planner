@@ -1,22 +1,29 @@
 :root {
   --text: #4b5563;
   --text-h: #111827;
-  --bg: #f7f7f9;
+  --bg: #f3f2f9;
   --bg-card: #ffffff;
   --border: #e5e7eb;
   --accent: #7c3aed;
+  --accent-2: #2563eb;
   --accent-bg: rgba(124, 58, 237, 0.1);
   --accent-border: rgba(124, 58, 237, 0.35);
   --wild-color: #16a34a;
   --wild-bg: rgba(22, 163, 74, 0.12);
   --breed-color: #d97706;
   --breed-bg: rgba(217, 119, 6, 0.12);
-  --shadow: rgba(15, 15, 20, 0.06) 0 1px 3px, rgba(15, 15, 20, 0.04) 0 1px 2px;
+  --shadow: rgba(76, 29, 149, 0.08) 0 4px 14px, rgba(15, 15, 20, 0.04) 0 1px 2px;
+  --shadow-lg: rgba(76, 29, 149, 0.16) 0 12px 28px -6px, rgba(15, 15, 20, 0.08) 0 4px 8px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --display: 'Baloo 2', var(--sans);
   color-scheme: light dark;
   color: var(--text);
-  background: var(--bg);
+  background:
+    radial-gradient(1100px 520px at 6% -8%, rgba(124, 58, 237, 0.14), transparent 60%),
+    radial-gradient(900px 480px at 100% 0%, rgba(37, 99, 235, 0.1), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
   font: 16px/1.5 var(--sans);
   -webkit-font-smoothing: antialiased;
 }
@@ -29,13 +36,21 @@
     --bg-card: #1a1a22;
     --border: #2b2b35;
     --accent: #c084fc;
+    --accent-2: #60a5fa;
     --accent-bg: rgba(192, 132, 252, 0.14);
     --accent-border: rgba(192, 132, 252, 0.4);
     --wild-color: #4ade80;
     --wild-bg: rgba(74, 222, 128, 0.12);
     --breed-color: #fbbf24;
     --breed-bg: rgba(251, 191, 36, 0.12);
-    --shadow: rgba(0, 0, 0, 0.4) 0 1px 3px;
+    --shadow: rgba(0, 0, 0, 0.4) 0 4px 14px;
+    --shadow-lg: rgba(0, 0, 0, 0.55) 0 16px 32px -8px;
+
+    background:
+      radial-gradient(1100px 520px at 6% -8%, rgba(192, 132, 252, 0.16), transparent 60%),
+      radial-gradient(900px 480px at 100% 0%, rgba(96, 165, 250, 0.12), transparent 55%),
+      var(--bg);
+    background-attachment: fixed;
   }
 }
 
@@ -51,16 +66,18 @@ h1,
 h2,
 h3 {
   color: var(--text-h);
-  font-weight: 600;
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: 0.01em;
   margin: 0 0 8px;
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 30px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 21px;
 }
 
 p {
@@ -78,6 +95,16 @@ a {
   color: var(--accent);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-border);
+  border-radius: 999px;
+}
+
 .app {
   min-height: 100svh;
   display: flex;
@@ -86,16 +113,19 @@ a {
 
 .app-header {
   border-bottom: 1px solid var(--border);
-  background: var(--bg-card);
+  background: color-mix(in srgb, var(--bg-card) 85%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 1px 0 rgba(124, 58, 237, 0.08);
 }
 
 .app-header-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,32 +134,53 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--display);
   font-weight: 700;
   color: var(--text-h);
   font-size: 17px;
 }
 
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  font-size: 18px;
+  background: linear-gradient(145deg, var(--accent), var(--accent-2));
+  box-shadow: var(--shadow);
+}
+
 .app-header nav {
   display: flex;
   gap: 4px;
+  background: var(--accent-bg);
+  padding: 4px;
+  border-radius: 999px;
 }
 
 .app-header nav a {
   text-decoration: none;
   color: var(--text);
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.15s, background 0.15s;
 }
 
 .app-header nav a:hover {
-  background: var(--accent-bg);
+  color: var(--text-h);
 }
 
 .app-header nav a.active {
-  color: var(--accent);
-  background: var(--accent-bg);
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: var(--shadow);
 }
 
 .app-main {
@@ -137,7 +188,7 @@ a {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px 20px 60px;
+  padding: 28px 20px 60px;
 }
 
 .app-footer {
@@ -165,12 +216,30 @@ a {
 
 .type-badge {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   padding: 2px 7px;
   border-radius: 999px;
   border: 1px solid;
+}
+
+/* Rarity badge */
+.rarity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.rarity-badge-compact {
+  font-size: 11px;
+  padding: 1px 7px;
 }
 
 /* Pal images */
@@ -186,6 +255,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--display);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -203,14 +273,15 @@ a {
   gap: 8px;
   width: 100%;
   padding: 6px 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--bg-card);
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .pal-picker-input-wrap:focus-within {
-  outline: 2px solid var(--accent-border);
-  outline-offset: 1px;
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px var(--accent-bg);
 }
 
 .pal-picker-input {
@@ -229,30 +300,32 @@ a {
 select {
   width: 100%;
   padding: 10px 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-h);
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .pair-search:focus,
 select:focus {
-  outline: 2px solid var(--accent-border);
-  outline-offset: 1px;
+  outline: none;
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px var(--accent-bg);
 }
 
 .pal-picker-list {
   position: absolute;
   z-index: 20;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   left: 0;
   right: 0;
   max-height: 320px;
   overflow-y: auto;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  box-shadow: var(--shadow);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
   margin: 0;
   padding: 4px;
   list-style: none;
@@ -293,8 +366,8 @@ select:focus {
 }
 
 .plan-target {
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -302,6 +375,11 @@ select:focus {
   display: flex;
   gap: 16px;
   align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 0 0 1px var(--tier-glow, transparent), var(--shadow);
 }
 
 .pal-detail-header .pal-image,
@@ -334,7 +412,7 @@ select:focus {
 .tag {
   display: inline-block;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 3px 9px;
   border-radius: 999px;
   margin-top: 6px;
@@ -369,6 +447,13 @@ select:focus {
   align-items: center;
   gap: 6px;
   font-size: 14px;
+  font-weight: 500;
+}
+
+.easy-toggle input[type='checkbox'] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
 }
 
 .pair-search {
@@ -399,16 +484,25 @@ select:focus {
 
 .pair-plus {
   align-self: center;
-  color: var(--text);
+  color: var(--accent);
+  font-family: var(--display);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .parent-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-left: 4px solid var(--border);
   border-radius: 12px;
   padding: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.parent-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .parent-card-head {
@@ -422,13 +516,12 @@ select:focus {
   min-width: 0;
 }
 
-.parent-card-head .rarity {
+.parent-card-head .rarity-badge {
   margin-left: auto;
-  white-space: nowrap;
 }
 
 .parent-card-name {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-h);
 }
 
@@ -443,16 +536,19 @@ select:focus {
   background: none;
   border: 1px dashed var(--accent-border);
   color: var(--accent);
-  border-radius: 8px;
-  padding: 6px 10px;
+  border-radius: 999px;
+  padding: 6px 12px;
   font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   width: 100%;
   text-align: left;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .expand-btn:hover {
   background: var(--accent-bg);
+  border-style: solid;
 }
 
 .nested-tree {
@@ -467,16 +563,19 @@ select:focus {
   margin-top: 14px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 14px;
+  border-radius: 999px;
+  padding: 8px 16px;
   cursor: pointer;
   font-size: 13px;
+  font-weight: 600;
   color: var(--text-h);
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
 }
 
 .show-more-btn:hover {
   border-color: var(--accent-border);
   color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .empty-note {
@@ -495,17 +594,15 @@ select:focus {
 }
 
 .pair-calc-result {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  display: block;
 }
 
 .result-label {
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text);
+  letter-spacing: 0.08em;
+  color: var(--accent);
 }
 
 .pals-count {
@@ -538,14 +635,18 @@ select:focus {
   display: block;
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
   border-radius: 12px;
   padding: 12px;
   text-decoration: none;
-  transition: border-color 0.15s;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
 }
 
 .pal-grid-card:hover {
   border-color: var(--accent-border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .pal-grid-card-head {
@@ -558,7 +659,7 @@ select:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 @media (max-width: 640px) {
