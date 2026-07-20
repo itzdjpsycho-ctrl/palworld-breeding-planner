@@ -2,17 +2,14 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import { BreedingPlanPage } from './pages/BreedingPlanPage';
 import { PairCalculatorPage } from './pages/PairCalculatorPage';
 import { PalsPage } from './pages/PalsPage';
-import { BackgroundCast } from './components/BackgroundCast';
 
 function App() {
   return (
     <div className="app">
       <div className="app-bg" aria-hidden="true">
-        <span className="bg-blob bg-blob-1" />
-        <span className="bg-blob bg-blob-2" />
-        <span className="bg-blob bg-blob-3" />
-        <span className="bg-blob bg-blob-4" />
-        <BackgroundCast />
+        <span className="mist mist-1" />
+        <span className="mist mist-2" />
+        <span className="mist mist-3" />
       </div>
       <header className="app-header">
         <div className="app-header-inner">
