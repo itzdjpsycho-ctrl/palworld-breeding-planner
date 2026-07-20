@@ -1,0 +1,643 @@
+id,name,types,rarity,combiRank,combiDuplicatePriority,maleProbability,breedable,isBoss,isRaidBoss
+raid_nightlady,Raid Bellanoir,dark,10,9999,999900,0,false,true,true
+raid_nightlady_dark,Raid Bellanoir Libero,dark,10,9999,999900,0,false,true,true
+raid_nightlady_dark_2,Raid Bellanoir Libero Ultra,dark,10,9999,999900,0,false,true,true
+raid_kingbahamut_dragon,Raid Blazamut Ryu,dragon|fire,10,9999,999900,50,false,true,true
+raid_kingbahamut_dragon_2,Raid Blazamut Ryu Ultra,dragon|fire,10,9999,999900,50,false,true,true
+badcatgirl,Nyafia,dark,4,1250,125000,40,true,false,false
+blueberryfairy,Prunelia,grass|dark,5,1390,139000,40,true,false,false
+boss_alpaca,Alpha Melpaca,normal,8,2720,272000,50,false,true,false
+boss_amaterasuwolf,Alpha Kitsun,fire,8,1670,167000,50,false,true,false
+boss_anubis,Alpha Anubis,ground,8,480,48000,50,false,true,false
+boss_badcatgirl,Alpha Nyafia,dark,5,1250,125000,40,false,true,false
+boss_baphomet,Alpha Incineram,fire|dark,8,1470,147000,50,false,true,false
+boss_baphomet_dark,Alpha Incineram Noct,dark,8,1310,131000,50,false,true,false
+boss_bastet,Alpha Mau,dark,5,3040,304000,50,false,true,false
+boss_bastet_ice,Alpha Mau Cryst,ice,5,2750,275000,50,false,true,false
+boss_berrygoat,Alpha Caprity,grass,5,2610,261000,50,false,true,false
+boss_birddragon,Alpha Vanwyrm,fire|dark,7,1650,165000,50,false,true,false
+boss_birddragon_ice,Alpha Vanwyrm Cryst,ice|dark,8,1430,143000,50,false,true,false
+boss_blackcentaur,Alpha Necromus,dark,8,190,19000,50,false,true,false
+boss_blackgriffon,Alpha Shadowbeak,dark,8,550,55000,50,false,true,false
+boss_blackmetaldragon,Alpha Astegon,dragon|dark,8,490,49000,50,false,true,false
+boss_blueberryfairy,Alpha Prunelia,grass|dark,8,1390,139000,40,false,true,false
+boss_bluedragon,Alpha Azurobe,water|dragon,8,1830,183000,50,false,true,false
+boss_blueplatypus,Alpha Fuack,water,5,2980,298000,50,false,true,false
+boss_boar,Alpha Rushoar,ground,5,2880,288000,50,false,true,false
+boss_brownrabbit,Alpha Lapiron,ground,5,1680,168000,50,false,true,false
+boss_captainpenguin,Alpha Penking,water|ice,8,2070,207000,50,false,true,false
+boss_carbunclo,Alpha Lifmunk,grass,5,3020,302000,50,false,true,false
+boss_catbat,Alpha Tombat,dark,8,2340,234000,50,false,true,false
+boss_catmage,Alpha Katress,dark,8,2040,204000,50,false,true,false
+boss_catmage_fire,Alpha Katress Ignis,dark|fire,8,1800,180000,50,false,true,false
+boss_catvampire,Alpha Felbat,dark,8,1570,157000,50,false,true,false
+boss_chickenpal,Alpha Chikipi,normal,5,3080,308000,50,false,true,false
+boss_colorfulbird,Alpha Tocotoco,normal,5,2730,273000,50,false,true,false
+boss_cowpal,Alpha Mozzarina,normal,5,2800,280000,20,false,true,false
+boss_cutebutterfly,Alpha Cinnamoth,grass,5,2620,262000,50,false,true,false
+boss_cutefox,Alpha Vixy,normal,5,3060,306000,50,false,true,false
+boss_cutemole,Alpha Fuddler,ground,5,2790,279000,50,false,true,false
+boss_darkcrow,Alpha Cawgnito,dark,7,2370,237000,50,false,true,false
+boss_darkscorpion,Alpha Menasting,dark|ground,8,1120,112000,50,false,true,false
+boss_darkscorpion_ground,Alpha Menasting Terra,ground,8,640,64000,50,false,true,false
+boss_deer,Alpha Eikthyrdeer,normal,7,2710,271000,50,false,true,false
+boss_deer_ground,Alpha Eikthyrdeer Terra,ground,8,2580,258000,50,false,true,false
+boss_dreamdemon,Alpha Daedream,dark,5,2910,291000,50,false,true,false
+boss_drillgame,Alpha Digtoise,ground,8,1550,155000,50,false,true,false
+boss_eagle,Alpha Galeclaw,normal,5,2570,257000,50,false,true,false
+boss_eleccat,Alpha Sparkit,electric,5,3010,301000,50,false,true,false
+boss_eleclion,Alpha Boltmane,electric,7,9999,999900,50,false,true,false
+boss_elecpanda,Alpha Grizzbolt,electric,8,1020,102000,50,false,true,false
+boss_fairydragon,Alpha Elphidran,dragon,8,2280,228000,50,false,true,false
+boss_fairydragon_water,Alpha Elphidran Aqua,dragon|water,8,1640,164000,50,false,true,false
+boss_fengyundeeper,Alpha Fenglope,normal,7,1960,196000,50,false,true,false
+boss_firekirin,Alpha Pyrin,fire,8,1980,198000,50,false,true,false
+boss_firekirin_dark,Alpha Pyrin Noct,fire|dark,8,1870,187000,50,false,true,false
+boss_flamebambi,Alpha Rooby,fire,5,2870,287000,50,false,true,false
+boss_flamebuffalo,Alpha Arsox,fire,7,2320,232000,50,false,true,false
+boss_flowerdinosaur,Alpha Dinossom,grass|dragon,8,2100,210000,50,false,true,false
+boss_flowerdinosaur_electric,Alpha Dinossom Lux,electric|dragon,8,1890,189000,50,false,true,false
+boss_flowerdoll,Alpha Petallia,grass,8,1720,172000,50,false,true,false
+boss_flowerdoll_fire,Alpha Petallia Ignis,grass|fire,8,820,82000,50,false,true,false
+boss_flowerrabbit,Alpha Flopie,grass,5,2660,266000,50,false,true,false
+boss_flyingmanta,Alpha Celaray,water,5,2740,274000,50,false,true,false
+boss_foxmage,Alpha Wixen,fire,8,2080,208000,50,false,true,false
+boss_foxmage_dark,Alpha Wixen Noct,fire|dark,8,1490,149000,50,false,true,false
+boss_ganesha,Alpha Teafant,water,5,3070,307000,50,false,true,false
+boss_garm,Alpha Direhowl,normal,5,2680,268000,50,false,true,false
+boss_ghostbeast,Alpha Maraith,dark,8,1710,171000,50,false,true,false
+boss_goldenhorse,Alpha Gildane,ground,8,730,73000,50,false,true,false
+boss_gorilla,Alpha Gorirat,normal,8,2140,214000,50,false,true,false
+boss_gorilla_ground,Alpha Gorirat Terra,ground,8,1880,188000,50,false,true,false
+boss_grassmammoth,Alpha Mammorest,grass|ground,8,1340,134000,50,false,true,false
+boss_grassmammoth_ice,Alpha Mammorest Cryst,ice|ground,8,1070,107000,50,false,true,false
+boss_grasspanda,Alpha Mossanda,grass,8,2060,206000,50,false,true,false
+boss_grasspanda_electric,Alpha Mossanda Lux,electric,8,1440,144000,50,false,true,false
+boss_grassrabbitman,Alpha Verdash,grass,8,1160,116000,50,false,true,false
+boss_hadesbird,Alpha Helzephyr,dark,8,1130,113000,50,false,true,false
+boss_hadesbird_electric,Alpha Helzephyr Lux,dark|electric,8,960,96000,50,false,true,false
+boss_hawkbird,Alpha Nitewing,normal,5,2560,256000,50,false,true,false
+boss_hedgehog,Alpha Jolthog,electric,5,3030,303000,50,false,true,false
+boss_hedgehog_ice,Alpha Jolthog Cryst,ice,5,2850,285000,50,false,true,false
+boss_herculesbeetle,Alpha Warsect,ground|grass,8,1280,128000,85,false,true,false
+boss_herculesbeetle_ground,Alpha Warsect Terra,ground,8,630,63000,85,false,true,false
+boss_horus,Alpha Faleris,fire,8,500,50000,50,false,true,false
+boss_icedeer,Alpha Reindrix,ice,7,1930,193000,50,false,true,false
+boss_icefox,Alpha Foxcicle,ice,8,1970,197000,50,false,true,false
+boss_icehorse,Alpha Frostallion,ice,8,150,15000,50,false,true,false
+boss_icehorse_dark,Alpha Frostallion Noct,dark,8,110,11000,50,false,true,false
+boss_jetdragon,Alpha Jetragon,dragon,8,70,7000,50,false,true,false
+boss_kelpie,Alpha Kelpsea,water,5,2810,281000,50,false,true,false
+boss_kelpie_fire,Alpha Kelpsea Ignis,fire,5,2470,247000,50,false,true,false
+boss_kingalpaca,Alpha Kingpaca,normal,8,2220,222000,90,false,true,false
+boss_kingalpaca_ice,Alpha Kingpaca Cryst,ice,8,1530,153000,90,false,true,false
+boss_kingbahamut,Alpha Blazamut,fire,8,410,41000,50,false,true,false
+boss_kingbahamut_dragon,Alpha Blazamut Ryu,dragon|fire,8,100,10000,50,false,true,false
+boss_kirin,Alpha Univolt,electric,8,2270,227000,50,false,true,false
+boss_kirin_ice,Alpha Univolt Cryst,ice,8,540,54000,50,false,true,false
+boss_kitsunebi,Alpha Foxparks,fire,5,2990,299000,50,false,true,false
+boss_lavagirl,Alpha Flambelle,fire,5,2700,270000,50,false,true,false
+boss_lazycatfish,Alpha Dumud,ground|water,7,2290,229000,50,false,true,false
+boss_lazydragon,Alpha Relaxaurus,dragon|water,8,1090,109000,50,false,true,false
+boss_lazydragon_electric,Alpha Relaxaurus Lux,dragon|electric,8,770,77000,50,false,true,false
+boss_lilyqueen,Alpha Lyleen,grass,8,240,24000,30,false,true,false
+boss_lilyqueen_dark,Alpha Lyleen Noct,dark,8,220,22000,30,false,true,false
+boss_littlebriarrose,Alpha Bristla,grass,5,2690,269000,50,false,true,false
+boss_lizardman,Alpha Leezpunk,dark,5,2670,267000,50,false,true,false
+boss_lizardman_fire,Alpha Leezpunk Ignis,fire,5,2640,264000,50,false,true,false
+boss_manticore,Alpha Blazehowl,fire,8,1360,136000,50,false,true,false
+boss_manticore_dark,Alpha Blazehowl Noct,fire|dark,8,1270,127000,50,false,true,false
+boss_monkey,Alpha Tanzee,grass,5,2900,290000,50,false,true,false
+boss_monkey_fire,Alpha Tanzee Ignis,fire,5,2830,283000,50,false,true,false
+boss_mopbaby,Alpha Swee,ice,5,2840,284000,50,false,true,false
+boss_mopking,Alpha Sweepa,ice,8,2150,215000,50,false,true,false
+boss_mutant,Alpha Lunaris,normal,8,2010,201000,50,false,true,false
+boss_naughtycat,Alpha Grintale,normal,8,2120,212000,50,false,true,false
+boss_negativekoala,Alpha Depresso,dark,5,3000,300000,50,false,true,false
+boss_negativeoctopus,Alpha Killamari,dark|water,5,2770,277000,50,false,true,false
+boss_nightfox,Alpha Nox,dark,8,2920,292000,50,false,true,false
+boss_penguin,Alpha Pengullet,water|ice,5,2960,296000,50,false,true,false
+boss_pinkcat,Alpha Cattiva,normal,5,2760,276000,50,false,true,false
+boss_pinklizard,Alpha Lovander,dark,8,2090,209000,30,false,true,false
+boss_pinkrabbit,Alpha Ribbuny,normal,5,2860,286000,50,false,true,false
+boss_plantslime,Alpha Gumoss,grass|ground,8,2950,295000,50,false,true,false
+boss_plantslime_flower,Alpha Gumoss,grass|ground,8,2950,295000,50,false,true,false
+boss_queenbee,Alpha Elizabee,grass,8,1790,179000,10,false,true,false
+boss_raijindaughter,Alpha Dazzi,electric,5,2400,240000,20,false,true,false
+boss_redarmorbird,Alpha Ragnahawk,fire,8,1050,105000,50,false,true,false
+boss_robinhood,Alpha Robinquill,grass,8,2260,226000,50,false,true,false
+boss_robinhood_ground,Alpha Robinquill Terra,grass|ground,8,2050,205000,50,false,true,false
+boss_ronin,Alpha Bushi,fire,8,1560,156000,50,false,true,false
+boss_ronin_dark,Alpha Bushi Noct,fire|dark,8,840,84000,50,false,true,false
+boss_saintcentaur,Alpha Paladius,normal,8,180,18000,50,false,true,false
+boss_sakurasaurus,Alpha Broncherry,grass,8,1380,138000,50,false,true,false
+boss_sakurasaurus_water,Alpha Broncherry Aqua,grass|water,8,1080,108000,50,false,true,false
+boss_serpent,Alpha Surfent,water,5,2440,244000,50,false,true,false
+boss_serpent_ground,Alpha Surfent Terra,ground,8,1840,184000,50,false,true,false
+boss_sharkkid,Alpha Gobfin,water,5,2550,255000,50,false,true,false
+boss_sharkkid_fire,Alpha Gobfin Ignis,fire,5,2430,243000,50,false,true,false
+boss_sheepball,Alpha Lamball,normal,5,3050,305000,50,false,true,false
+boss_skydragon,Alpha Quivern,dragon,8,1210,121000,50,false,true,false
+boss_skydragon_grass,Alpha Quivern Botan,dragon|grass,8,1300,130000,50,false,true,false
+boss_soldierbee,Alpha Beegarde,grass,7,2350,235000,10,false,true,false
+boss_suzaku,Alpha Suzaku,fire,8,1200,120000,50,false,true,false
+boss_suzaku_water,Alpha Suzaku Aqua,water,8,740,74000,50,false,true,false
+boss_sweetssheep,Alpha Woolipop,normal,5,2820,282000,50,false,true,false
+boss_sweetssheep_ground,Alpha Woolipop Terra,ground,7,2030,203000,50,false,true,false
+boss_tentacleturtle,Alpha Turtacle,water,5,2410,241000,50,false,true,false
+boss_thunderbird,Alpha Beakon,electric,8,1690,169000,50,false,true,false
+boss_thunderbird_ice,Alpha Beakon Cryst,ice,8,580,58000,50,false,true,false
+boss_thunderdog,Alpha Rayhound,electric,8,1920,192000,50,false,true,false
+boss_thunderdog_ice,Alpha Rayhound Cryst,ice,8,1600,160000,50,false,true,false
+boss_thunderdragonman,Alpha Orserk,dragon|electric,8,120,12000,50,false,true,false
+boss_umihebi,Alpha Jormuntide,dragon|water,8,590,59000,50,false,true,false
+boss_umihebi_fire,Alpha Jormuntide Ignis,dragon|fire,8,170,17000,50,false,true,false
+boss_violetfairy,Alpha Vaelet,grass,8,1480,148000,50,false,true,false
+boss_volcanicmonster,Alpha Reptyro,fire|ground,8,1060,106000,50,false,true,false
+boss_volcanicmonster_ice,Alpha Reptyro Cryst,ice|ground,8,600,60000,50,false,true,false
+boss_weaseldragon,Alpha Chillet,ice|dragon,7,2330,233000,50,false,true,false
+boss_weaseldragon_fire,Alpha Chillet Ignis,fire|dragon,8,1950,195000,50,false,true,false
+boss_werewolf,Alpha Loupmoon,dark,7,2110,211000,50,false,true,false
+boss_whitemoth,Alpha Sibelyx,ice,8,1810,181000,50,false,true,false
+boss_whitemoth_neutral,Alpha Sibelyx Primo,normal,8,650,65000,50,false,true,false
+boss_whitetiger,Alpha Cryolinx,ice,8,1040,104000,50,false,true,false
+boss_windchimes,Alpha Hangyu,ground,5,2780,278000,50,false,true,false
+boss_windchimes_ice,Alpha Hangyu Cryst,ice,7,2510,251000,50,false,true,false
+boss_wizardowl,Alpha Hoocrates,dark,5,2940,294000,50,false,true,false
+boss_woolfox,Alpha Cremis,normal,5,2890,289000,50,false,true,false
+boss_yeti,Alpha Wumpo,ice,8,830,83000,50,false,true,false
+boss_yeti_grass,Alpha Wumpo Botan,grass,8,610,61000,50,false,true,false
+boss_nightlady,Alpha Bellanoir,dark,8,620,62000,10,false,true,false
+boss_nightlady_dark,Alpha Bellanoir Libero,dark,8,130,13000,10,false,true,false
+boss_moonqueen,Alpha Selyne,dark|normal,8,360,36000,20,false,true,false
+boss_kendofrog,Alpha Croajiro,water,5,2600,260000,50,false,true,false
+boss_leafprincess,Alpha Lullu,grass,5,1990,199000,30,false,true,false
+boss_mushroomdragon,Alpha Shroomer,grass,5,1520,152000,55,false,true,false
+boss_mushroomdragon_dark,Alpha Shroomer Noct,grass|dark,8,1450,145000,50,false,true,false
+boss_smallarmadillo,Alpha Kikit,ground,5,2310,231000,50,false,true,false
+boss_featherostrich,Alpha Dazemu,ground,8,2210,221000,50,false,true,false
+boss_scorpionman,Alpha Prixter,dark|ground,8,1510,151000,50,false,true,false
+boss_scorpionman_electric,Alpha Prixter Lux,electric|ground,8,850,85000,50,false,true,false
+boss_winggolem,Alpha Knocklem,ground,8,260,26000,70,false,true,false
+boss_winggolem_fire,Alpha Knocklem Ignis,fire,8,210,21000,70,false,true,false
+boss_candleghost,Alpha Sootseer,dark|fire,8,980,98000,50,false,true,false
+boss_guardiandog,Alpha Yakumo,normal,5,2230,223000,50,false,true,false
+boss_sifudog,Alpha Dogen,normal,8,1460,146000,50,false,true,false
+boss_mimicdog,Alpha Mimog,normal,8,1740,174000,80,false,true,false
+boss_darkalien,Alpha Xenovader,dark,8,1820,182000,50,false,true,false
+boss_whitealiendragon,Alpha Xenogard,dragon,8,990,99000,50,false,true,false
+boss_volcanodragon,Alpha Moldron,fire|ground,8,750,75000,50,false,true,false
+boss_volcanodragon_ice,Alpha Moldron Cryst,ice|ground,8,380,38000,50,false,true,false
+boss_darkmechadragon,Alpha Xenolord,dark|dragon,8,400,40000,50,false,true,false
+boss_ghostrabbit,Alpha Nitemary,dark,8,1230,123000,40,false,true,false
+boss_ghostrabbit_grass,Alpha Nitemary Botan,grass,8,1320,132000,40,false,true,false
+boss_nightbluehorse,Alpha Starryon,dark,8,1150,115000,50,false,true,false
+boss_nightbluehorse_neutral,Alpha Starryon Primo,normal,8,430,43000,50,false,true,false
+boss_whiteshielddragon,Alpha Silvegis,dragon,8,560,56000,50,false,true,false
+boss_blackpuppy,Alpha Smokie,dark,5,1760,176000,50,false,true,false
+boss_blackpuppy_ice,Alpha Smokie Cryst,dark|ice,5,1610,161000,50,false,true,false
+boss_whitedeer,Alpha Celesdir,normal,8,570,57000,50,false,true,false
+boss_whitedeer_dark,Alpha Celesdir Noct,dark,8,270,27000,50,false,true,false
+boss_kingwhale,Alpha Panthalus,water,8,20,2000,50,false,true,false
+boss_mysterymask,Alpha Omascul,dark,5,1140,114000,50,false,true,false
+boss_hoodghost,Alpha Hoodle,dark,5,1770,177000,50,false,true,false
+boss_sekhmet,Alpha Sekhmet,ground,8,870,87000,30,false,true,false
+boss_eleclizard,Alpha Slowatt,electric,5,1750,175000,50,false,true,false
+boss_grimgirl,Alpha Splatterina,dark,5,780,78000,38,false,true,false
+boss_purplespider,Alpha Tarantriss,dark,5,1730,173000,50,false,true,false
+boss_bluethunderhorse,Alpha Azurmane,electric,8,420,42000,50,false,true,false
+boss_rockbeast,Alpha Pierdon,ground,8,1110,111000,50,false,true,false
+boss_rockbeast_ice,Alpha Pierdon Cryst,ice,8,460,46000,50,false,true,false
+boss_octopusgirl,Alpha Gloopie,water|dark,8,2530,253000,50,false,true,false
+boss_octopusgirl_neutral,Alpha Gloopie Primo,water|normal,8,1630,163000,50,false,true,false
+boss_icenarwhal,Alpha Whalaska,ice|water,8,710,71000,58,false,true,false
+boss_jellyfishfairy,Alpha Jelliette,water,5,2650,265000,50,false,true,false
+boss_berrygoat_dark,Alpha Caprity Noct,dark,5,1940,194000,50,false,true,false
+boss_kitsunebi_ice,Alpha Foxparks Cryst,ice,5,2500,250000,50,false,true,false
+boss_raijindaughter_water,Alpha Dazzi Noct,dark|electric,5,1910,191000,20,false,true,false
+boss_snowtigerbeastman,Alpha Bastigor,ice,8,50,5000,60,false,true,false
+boss_werewolf_ice,Alpha Loupmoon Cryst,ice,5,1290,129000,50,false,true,false
+boss_whitetiger_ground,Alpha Cryolinx Terra,ground,8,470,47000,50,false,true,false
+boss_horus_water,Alpha Faleris Aqua,water,8,450,45000,50,false,true,false
+boss_fengyundeeper_electric,Alpha Fenglope Lux,electric,5,900,90000,50,false,true,false
+boss_amaterasuwolf_dark,Alpha Kitsun Noct,dark,8,800,80000,50,false,true,false
+boss_pinkrabbit_grass,Alpha Ribbuny Botan,grass,5,2460,246000,50,false,true,false
+boss_snakegirl,Alpha Venusa,dark,8,970,97000,40,false,true,false
+boss_ghostanglerfish,Alpha Ghangler,dark|water,8,880,88000,50,false,true,false
+boss_icewitch,Alpha Icelyn,ice,5,1260,126000,50,false,true,false
+boss_clownrabbit,Alpha Dupin,fire,8,520,52000,50,false,true,false
+boss_legenddeer,Alpha Hartalis,normal,8,90,9000,50,false,true,false
+boss_leafmomonga,Alpha Herbil,grass|normal,5,2630,263000,50,false,true,false
+boss_smallyeti,Alpha Snugloo,ice,5,2390,239000,50,false,true,false
+boss_icecrocodile,Alpha Munchill,ice|water,5,2130,213000,50,false,true,false
+boss_cactusdoll,Alpha Needoll,grass,5,2420,242000,50,false,true,false
+boss_cactusdoll_dark,Alpha Needoll Noct,dark|grass,5,1580,158000,50,false,true,false
+boss_mushroomlady,Alpha Mycora,grass,8,760,76000,30,false,true,false
+boss_stuffedshark,Alpha Finsider,water,5,2450,245000,50,false,true,false
+boss_foxexorcist,Alpha Flaracle,fire,8,390,39000,50,false,true,false
+boss_iceseal,Alpha Polapup,ice|water,8,1660,166000,50,false,true,false
+boss_iceseal_ground,Alpha Polapup Terra,ice|ground,8,1100,110000,50,false,true,false
+boss_cloverfairy,Alpha Clovee,grass|normal,5,2970,297000,50,false,true,false
+boss_elecpomeranian,Alpha Puffolt,electric,5,2360,236000,50,false,true,false
+boss_ghostblackcat,Alpha Wispaw,dark,8,2250,225000,50,false,true,false
+boss_thiefbird,Alpha Roujay,dark,8,530,53000,60,false,true,false
+boss_onighostgirl,Alpha Bakemi,dark,5,1540,154000,40,false,true,false
+boss_plesiosaur,Alpha Braloha,grass|ground,8,1030,103000,50,false,true,false
+boss_tropicalostrich,Alpha Palumba,grass,8,1240,124000,50,false,true,false
+boss_grassgolem,Alpha Dualith,ground|grass,8,510,51000,50,false,true,false
+boss_grassgolem_dark,Alpha Dualith Noct,ground|dark,8,250,25000,50,false,true,false
+boss_snowpeafowl,Alpha Frostplume,ice,5,860,86000,50,false,true,false
+boss_cubeturtle,Alpha Tetroise,ground,8,790,79000,50,false,true,false
+boss_cubeturtle_neutral,Alpha Tetroise Primo,normal,8,200,20000,50,false,true,false
+boss_longcat,Alpha Valentail,normal,5,1900,190000,50,false,true,false
+boss_jellyfishghost,Alpha Jellroy,water|dark,5,2590,259000,50,false,true,false
+boss_thunderfluffybird,Alpha Dynamoff,electric,8,1400,140000,50,false,true,false
+boss_moonchild,Alpha Wistella,dark,5,1180,118000,50,false,true,false
+boss_samuraidog,Alpha Pupperai,ground,5,2930,293000,50,false,true,false
+boss_poseidonorca,Alpha Neptilius,water,8,160,16000,50,false,true,false
+boss_swordcutlassfish,Alpha Skutlass,water,8,1420,142000,50,false,true,false
+boss_swordcutlassfish_fire,Alpha Skutlass Ignis,water|fire,8,1590,159000,50,false,true,false
+boss_negativeoctopus_neutral,Alpha Killamari Primo,normal|water,5,2540,254000,50,false,true,false
+boss_penguin_electric,Alpha Pengullet Lux,water|electric,5,2490,249000,50,false,true,false
+boss_captainpenguin_black,Alpha Penking Lux,water|electric,8,1850,185000,50,false,true,false
+boss_flyingmanta_thunder,Alpha Celaray Lux,water|electric,5,2380,238000,50,false,true,false
+boss_blueplatypus_fire,Alpha Fuack Ignis,water|fire,5,2300,230000,50,false,true,false
+boss_lazycatfish_gold,Alpha Dumud Gild,ground|water,8,1620,162000,50,false,true,false
+boss_tentacleturtle_ground,Alpha Turtacle Terra,water|ground,5,1330,133000,50,false,true,false
+boss_kendofrog_dark,Alpha Croajiro Noct,water|dark,8,1860,186000,50,false,true,false
+boss_bluedragon_ice,Alpha Azurobe Cryst,ice|dragon,8,1220,122000,50,false,true,false
+boss_icenarwhal_fire,Alpha Whalaska Ignis,ice|fire,8,370,37000,42,false,true,false
+boss_ghostanglerfish_fire,Alpha Ghangler Ignis,fire|water,8,720,72000,50,false,true,false
+boss_stuffedshark_fire,Alpha Finsider Ignis,water|fire,5,2240,224000,50,false,true,false
+boss_mummypal,Alpha Gildra,dark|ground,8,1170,117000,50,false,true,false
+boss_kingsunfish,Alpha Solmora,water,5,1370,137000,50,false,true,false
+boss_kingsunfish_thunder,Alpha Solmora Lux,water|electric,8,1000,100000,50,false,true,false
+boss_monochromequeen,Alpha Solenne,dark|normal,8,280,28000,30,false,true,false
+boss_elecsnail,Alpha Snock,electric,5,1780,178000,50,false,true,false
+boss_elecsnail_ground,Alpha Snock Lux,electric|ground,5,1500,150000,50,false,true,false
+boss_lanternbutler,Alpha Loomen,dark|fire,8,890,89000,50,false,true,false
+boss_sumodog,Alpha Bulldosu,ground,5,1190,119000,50,false,true,false
+boss_venusflytrap,Alpha Carnibora,grass,8,1700,170000,40,false,true,false
+boss_fluffybird,Alpha Muffly,ice,5,2480,248000,50,false,true,false
+boss_dandeliongirl,Alpha Souffline,grass,5,2000,200000,40,false,true,false
+boss_clionetwins,Alpha Amione,water,5,2520,252000,40,false,true,false
+boss_darkflamefox,Alpha Majex,dark|fire,8,1010,101000,40,false,true,false
+boss_redflowerbird,Alpha Tropicaw,grass,8,1350,135000,50,false,true,false
+boss_lotusdragon,Alpha Ophydia,grass|water,8,230,23000,50,false,true,false
+boss_blueskydragon,Alpha Shaolong,dragon|water,8,40,4000,50,false,true,false
+boss_pandagirl,Alpha Leafan,grass,8,1410,141000,40,false,true,false
+boss_grassminotaur,Alpha Elgrove,grass,8,2020,202000,60,false,true,false
+boss_grassminotaur_ice,Alpha Elgrove Cryst,ice,8,440,44000,60,false,true,false
+boss_sleeverabbit,Alpha Lapure,normal,5,810,81000,40,false,true,false
+boss_mothman,Alpha Silvance,grass,8,80,8000,50,false,true,false
+boss_ghostdragon,Alpha Eidrolon,dragon|dark,8,300,30000,50,false,true,false
+boss_ghostdragon_fire,Alpha Eidrolon Ignis,dragon|fire,8,140,14000,50,false,true,false
+boss_flowerprince,Alpha Dandilord,grass|dark,8,60,6000,60,false,true,false
+boss_worldtreedragon,Alpha Astralym,,8,10,1000,50,false,true,false
+boss_kabukiman,Alpha Renjishi,fire,8,290,29000,60,false,true,false
+boss_domearmordragon,Alpha Aegidron,dragon|ground,8,30,3000,50,false,true,false
+brownrabbit,Lapiron,ground,3,1680,168000,50,true,false,false
+goldenhorse,Gildane,ground,8,730,73000,50,true,false,false
+tentacleturtle,Turtacle,water,3,2410,241000,50,true,false,false
+tentacleturtle_ground,Turtacle Terra,water|ground,4,1330,577,50,true,false,false
+anubis,Anubis,ground,10,480,48000,50,true,false,false
+baphomet,Incineram,fire|dark,4,1470,147000,50,true,false,false
+baphomet_dark,Incineram Noct,dark,5,1310,131000,50,true,false,false
+bastet,Mau,dark,1,3040,304000,50,true,false,false
+bastet_ice,Mau Cryst,ice,2,2750,275000,50,true,false,false
+boar,Rushoar,ground,1,2880,288000,50,true,false,false
+carbunclo,Lifmunk,grass,1,3020,302000,50,true,false,false
+colorfulbird,Tocotoco,normal,1,2730,273000,50,true,false,false
+deer,Eikthyrdeer,normal,5,2710,271000,50,true,false,false
+deer_ground,Eikthyrdeer Terra,ground,6,2580,258000,50,true,false,false
+drillgame,Digtoise,ground,5,1550,155000,50,true,false,false
+eagle,Galeclaw,normal,2,2570,257000,50,true,false,false
+elecpanda,Grizzbolt,electric,8,1020,102000,50,false,false,false
+ganesha,Teafant,water,1,3070,307000,50,true,false,false
+garm,Direhowl,normal,2,2680,268000,50,true,false,false
+gorilla,Gorirat,normal,5,2140,214000,50,true,false,false
+gorilla_ground,Gorirat Terra,ground,5,1880,188000,50,true,false,false
+hedgehog,Jolthog,electric,1,3030,303000,50,true,false,false
+hedgehog_ice,Jolthog Cryst,ice,2,2850,285000,50,true,false,false
+kirin,Univolt,electric,5,2270,227000,50,true,false,false
+kirin_ice,Univolt Cryst,ice,6,540,54000,50,true,false,false
+kitsunebi,Foxparks,fire,1,2990,299000,50,true,false,false
+littlebriarrose,Bristla,grass,1,2690,269000,50,true,false,false
+mutant,Lunaris,normal,6,2010,201000,50,true,false,false
+penguin,Pengullet,water|ice,1,2960,296000,50,true,false,false
+penguin_electric,Pengullet Lux,water|electric,2,2490,572,50,true,false,false
+raijindaughter,Dazzi,electric,2,2400,240000,20,true,false,false
+sharkkid,Gobfin,water,2,2550,255000,50,true,false,false
+sharkkid_fire,Gobfin Ignis,fire,3,2430,243000,50,true,false,false
+sheepball,Lamball,normal,1,3050,305000,50,true,false,false
+umihebi,Jormuntide,dragon|water,8,590,59000,50,true,false,false
+umihebi_fire,Jormuntide Ignis,dragon|fire,9,170,17000,50,true,false,false
+werewolf,Loupmoon,dark,3,2110,211000,50,true,false,false
+windchimes,Hangyu,ground,1,2780,278000,50,true,false,false
+windchimes_ice,Hangyu Cryst,ice,2,2510,251000,50,true,false,false
+suzaku,Suzaku,fire,8,1200,120000,50,true,false,false
+suzaku_water,Suzaku Aqua,water,9,740,74000,50,true,false,false
+firekirin,Pyrin,fire,6,1980,198000,50,true,false,false
+firekirin_dark,Pyrin Noct,fire|dark,7,1870,187000,50,true,false,false
+fairydragon,Elphidran,dragon,7,2280,228000,50,true,false,false
+fairydragon_water,Elphidran Aqua,dragon|water,8,1640,164000,50,true,false,false
+sweetssheep,Woolipop,normal,3,2820,282000,50,true,false,false
+sweetssheep_ground,Woolipop Terra,ground,4,2030,203000,50,true,false,false
+whitetiger,Cryolinx,ice,7,1040,104000,50,true,false,false
+alpaca,Melpaca,normal,3,2720,272000,50,true,false,false
+serpent,Surfent,water,4,2440,244000,50,true,false,false
+serpent_ground,Surfent Terra,ground,5,1840,184000,50,true,false,false
+darkcrow,Cawgnito,dark,3,2370,237000,50,true,false,false
+bluedragon,Azurobe,water|dragon,7,1830,183000,50,true,false,false
+bluedragon_ice,Azurobe Cryst,ice|dragon,8,1220,578,50,true,false,false
+pinkcat,Cattiva,normal,1,2760,276000,50,true,false,false
+negativekoala,Depresso,dark,1,3000,300000,50,true,false,false
+fengyundeeper,Fenglope,normal,3,1960,196000,50,true,false,false
+volcanicmonster,Reptyro,fire|ground,6,1060,106000,50,true,false,false
+volcanicmonster_ice,Reptyro Cryst,ice|ground,7,600,60000,50,true,false,false
+ghostbeast,Maraith,dark,6,1710,171000,50,true,false,false
+robinhood,Robinquill,grass,5,2260,226000,50,true,false,false
+robinhood_ground,Robinquill Terra,grass|ground,6,2050,205000,50,true,false,false
+lazydragon,Relaxaurus,dragon|water,8,1090,109000,50,true,false,false
+lazydragon_electric,Relaxaurus Lux,dragon|electric,9,770,77000,50,true,false,false
+amaterasuwolf,Kitsun,fire,6,1670,167000,50,true,false,false
+lizardman,Leezpunk,dark,2,2670,267000,50,true,false,false
+lizardman_fire,Leezpunk Ignis,fire,3,2640,264000,50,true,false,false
+blueplatypus,Fuack,water,1,2980,298000,50,true,false,false
+blueplatypus_fire,Fuack Ignis,water|fire,2,2300,575,50,true,false,false
+birddragon,Vanwyrm,fire|dark,5,1650,165000,50,true,false,false
+birddragon_ice,Vanwyrm Cryst,ice|dark,5,1430,143000,50,true,false,false
+chickenpal,Chikipi,normal,1,3080,308000,50,true,false,false
+flowerdinosaur,Dinossom,grass|dragon,6,2100,210000,50,true,false,false
+flowerdinosaur_electric,Dinossom Lux,electric|dragon,7,1890,189000,50,true,false,false
+eleccat,Sparkit,electric,1,3010,301000,50,true,false,false
+icehorse,Frostallion,ice,20,150,15000,50,false,false,false
+icehorse_dark,Frostallion Noct,dark,20,110,11000,50,false,false,false
+grassmammoth,Mammorest,grass|ground,8,1340,134000,50,true,false,false
+grassmammoth_ice,Mammorest Cryst,ice|ground,9,1070,107000,50,true,false,false
+catvampire,Felbat,dark,6,1570,157000,50,true,false,false
+sakurasaurus,Broncherry,grass,8,1380,138000,50,true,false,false
+sakurasaurus_water,Broncherry Aqua,grass|water,8,1080,108000,50,true,false,false
+horus,Faleris,fire,9,500,50000,50,false,false,false
+kingbahamut,Blazamut,fire,9,410,41000,50,true,false,false
+kingbahamut_dragon,Blazamut Ryu,dragon|fire,10,100,10000,50,false,false,false
+berrygoat,Caprity,grass,3,2610,261000,50,true,false,false
+icedeer,Reindrix,ice,4,1930,193000,50,true,false,false
+blackgriffon,Shadowbeak,dark,10,550,55000,50,false,false,false
+whitemoth,Sibelyx,ice,7,1810,181000,50,true,false,false
+whitemoth_neutral,Sibelyx Primo,normal,8,650,65000,50,true,false,false
+cutefox,Vixy,normal,2,3060,306000,50,true,false,false
+foxmage,Wixen,fire,6,2080,208000,50,true,false,false
+foxmage_dark,Wixen Noct,fire|dark,6,1490,149000,50,true,false,false
+pinklizard,Lovander,dark,5,2090,209000,30,true,false,false
+wizardowl,Hoocrates,dark,1,2940,294000,50,true,false,false
+kelpie,Kelpsea,water,1,2810,281000,50,true,false,false
+kelpie_fire,Kelpsea Ignis,fire,2,2470,247000,50,true,false,false
+negativeoctopus,Killamari,dark|water,1,2770,277000,50,true,false,false
+negativeoctopus_neutral,Killamari Primo,normal|water,2,2540,571,50,true,false,false
+cowpal,Mozzarina,normal,2,2800,280000,20,true,false,false
+yeti,Wumpo,ice,7,830,83000,50,true,false,false
+yeti_grass,Wumpo Botan,grass,8,610,61000,50,true,false,false
+violetfairy,Vaelet,grass,8,1480,148000,50,true,false,false
+hawkbird,Nitewing,normal,3,2560,256000,50,true,false,false
+flowerrabbit,Flopie,grass,1,2660,266000,50,true,false,false
+lilyqueen,Lyleen,grass,9,240,24000,30,false,false,false
+lilyqueen_dark,Lyleen Noct,dark,10,220,22000,30,false,false,false
+queenbee,Elizabee,grass,8,1790,179000,10,true,false,false
+soldierbee,Beegarde,grass,4,2350,235000,10,true,false,false
+catbat,Tombat,dark,5,2340,234000,50,true,false,false
+grasspanda,Mossanda,grass,6,2060,206000,50,true,false,false
+grasspanda_electric,Mossanda Lux,electric,7,1440,144000,50,true,false,false
+flamebuffalo,Arsox,fire,4,2320,232000,50,true,false,false
+thunderdog,Rayhound,electric,5,1920,192000,50,true,false,false
+thunderdog_ice,Rayhound Cryst,ice,6,1600,160000,50,true,false,false
+cutemole,Fuddler,ground,1,2790,279000,50,true,false,false
+blackmetaldragon,Astegon,dragon|dark,9,490,49000,50,true,false,false
+grassrabbitman,Verdash,grass,8,1160,116000,50,true,false,false
+icefox,Foxcicle,ice,5,1970,197000,50,true,false,false
+jetdragon,Jetragon,dragon,20,70,7000,50,false,false,false
+dreamdemon,Daedream,dark,1,2910,291000,50,true,false,false
+monkey,Tanzee,grass,1,2900,290000,50,true,false,false
+monkey_fire,Tanzee Ignis,fire,2,2830,283000,50,true,false,false
+manticore,Blazehowl,fire,7,1360,136000,50,true,false,false
+manticore_dark,Blazehowl Noct,fire|dark,8,1270,127000,50,true,false,false
+kingalpaca,Kingpaca,normal,8,2220,222000,90,true,false,false
+kingalpaca_ice,Kingpaca Cryst,ice,9,1530,153000,90,true,false,false
+plantslime,Gumoss,grass|ground,1,2950,295000,50,true,false,false
+mopbaby,Swee,ice,1,2840,284000,50,true,false,false
+mopking,Sweepa,ice,6,2150,215000,50,true,false,false
+catmage,Katress,dark,6,2040,204000,50,true,false,false
+catmage_fire,Katress Ignis,dark|fire,6,1800,180000,50,true,false,false
+pinkrabbit,Ribbuny,normal,1,2860,286000,50,true,false,false
+thunderbird,Beakon,electric,6,1690,169000,50,true,false,false
+thunderbird_ice,Beakon Cryst,ice,7,580,58000,50,true,false,false
+herculesbeetle,Warsect,ground|grass,8,1280,128000,85,true,false,false
+herculesbeetle_ground,Warsect Terra,ground,9,630,63000,85,true,false,false
+saintcentaur,Paladius,normal,20,180,18000,50,false,false,false
+nightfox,Nox,dark,6,2920,292000,50,true,false,false
+captainpenguin,Penking,water|ice,6,2070,207000,50,true,false,false
+captainpenguin_black,Penking Lux,water|electric,7,1850,573,50,true,false,false
+weaseldragon,Chillet,ice|dragon,4,2330,233000,50,true,false,false
+weaseldragon_fire,Chillet Ignis,fire|dragon,5,1950,195000,50,true,false,false
+skydragon,Quivern,dragon,7,1210,121000,50,true,false,false
+skydragon_grass,Quivern Botan,dragon|grass,8,1300,130000,50,true,false,false
+hadesbird,Helzephyr,dark,7,1130,113000,50,true,false,false
+hadesbird_electric,Helzephyr Lux,dark|electric,8,960,96000,50,true,false,false
+redarmorbird,Ragnahawk,fire,7,1050,105000,50,true,false,false
+ronin,Bushi,fire,7,1560,156000,50,true,false,false
+ronin_dark,Bushi Noct,fire|dark,7,840,84000,50,true,false,false
+flyingmanta,Celaray,water,3,2740,274000,50,true,false,false
+flyingmanta_thunder,Celaray Lux,water|electric,4,2380,574,50,true,false,false
+blackcentaur,Necromus,dark,20,190,19000,50,false,false,false
+flowerdoll,Petallia,grass,8,1720,172000,50,true,false,false
+flowerdoll_fire,Petallia Ignis,grass|fire,9,820,82000,50,true,false,false
+naughtycat,Grintale,normal,6,2120,212000,50,true,false,false
+cutebutterfly,Cinnamoth,grass,4,2620,262000,50,true,false,false
+darkscorpion,Menasting,dark|ground,9,1120,112000,50,true,false,false
+darkscorpion_ground,Menasting Terra,ground,10,640,64000,50,true,false,false
+thunderdragonman,Orserk,dragon|electric,9,120,12000,50,false,false,false
+woolfox,Cremis,normal,1,2890,289000,50,true,false,false
+lazycatfish,Dumud,ground|water,4,2290,229000,50,true,false,false
+lazycatfish_gold,Dumud Gild,ground|water,5,1620,576,50,true,false,false
+lavagirl,Flambelle,fire,1,2700,270000,50,true,false,false
+flamebambi,Rooby,fire,2,2870,287000,50,true,false,false
+nightlady,Bellanoir,dark,20,620,62000,10,false,false,false
+nightlady_dark,Bellanoir Libero,dark,20,130,13000,10,false,false,false
+moonqueen,Selyne,dark|normal,9,360,36000,20,false,false,false
+kendofrog,Croajiro,water,4,2600,260000,50,true,false,false
+kendofrog_dark,Croajiro Noct,water|dark,5,1860,186000,50,true,false,false
+leafprincess,Lullu,grass,4,1990,199000,30,true,false,false
+mushroomdragon,Shroomer,grass,4,1520,152000,55,true,false,false
+mushroomdragon_dark,Shroomer Noct,grass|dark,5,1450,145000,50,true,false,false
+smallarmadillo,Kikit,ground,4,2310,231000,50,true,false,false
+candleghost,Sootseer,dark|fire,7,980,98000,50,true,false,false
+scorpionman,Prixter,dark|ground,5,1510,151000,50,true,false,false
+scorpionman_electric,Prixter Lux,electric|ground,6,850,85000,50,true,false,false
+winggolem,Knocklem,ground,9,260,26000,70,true,false,false
+winggolem_fire,Knocklem Ignis,fire,10,210,21000,70,true,false,false
+guardiandog,Yakumo,normal,4,2230,223000,50,true,false,false
+sifudog,Dogen,normal,6,1460,146000,50,true,false,false
+featherostrich,Dazemu,ground,5,2210,221000,50,true,false,false
+mimicdog,Mimog,normal,7,1740,174000,80,false,false,false
+darkalien,Xenovader,dark,7,1820,182000,50,false,false,false
+whitealiendragon,Xenogard,dragon,9,990,99000,50,false,false,false
+volcanodragon,Moldron,fire|ground,7,750,75000,50,true,false,false
+volcanodragon_ice,Moldron Cryst,ice|ground,8,380,38000,50,true,false,false
+darkmechadragon,Xenolord,dark|dragon,8,400,40000,50,false,false,false
+ghostrabbit,Nitemary,dark,6,1230,123000,40,true,false,false
+ghostrabbit_grass,Nitemary Botan,grass,7,1320,132000,40,true,false,false
+nightbluehorse,Starryon,dark,7,1150,115000,50,true,false,false
+nightbluehorse_neutral,Starryon Primo,normal,8,430,43000,50,true,false,false
+whiteshielddragon,Silvegis,dragon,8,560,56000,50,true,false,false
+blackpuppy,Smokie,dark,2,1760,176000,50,true,false,false
+blackpuppy_ice,Smokie Cryst,dark|ice,3,1610,161000,50,true,false,false
+whitedeer,Celesdir,normal,6,570,57000,50,true,false,false
+whitedeer_dark,Celesdir Noct,dark,7,270,27000,50,true,false,false
+kingwhale,Panthalus,water,10,20,2000,50,false,false,false
+mysterymask,Omascul,dark,4,1140,114000,50,true,false,false
+hoodghost,Hoodle,dark,3,1770,177000,50,true,false,false
+sekhmet,Sekhmet,ground,5,870,87000,30,true,false,false
+eleclizard,Slowatt,electric,4,1750,175000,50,true,false,false
+grimgirl,Splatterina,dark,4,780,78000,38,true,false,false
+purplespider,Tarantriss,dark,3,1730,173000,50,true,false,false
+bluethunderhorse,Azurmane,electric,7,420,42000,50,true,false,false
+rockbeast,Pierdon,ground,6,1110,111000,50,true,false,false
+rockbeast_ice,Pierdon Cryst,ice,7,460,46000,50,true,false,false
+octopusgirl,Gloopie,water|dark,5,2530,253000,50,true,false,false
+octopusgirl_neutral,Gloopie Primo,water|normal,6,1630,163000,50,true,false,false
+icenarwhal,Whalaska,ice|water,8,710,71000,58,true,false,false
+icenarwhal_fire,Whalaska Ignis,ice|fire,8,370,37000,42,true,false,false
+jellyfishfairy,Jelliette,water,3,2650,265000,50,true,false,false
+predator_amaterasuwolf,Rampaging Kitsun,fire,9,9999,999900,50,false,true,false
+predator_birddragon,Rampaging Vanwyrm,fire|dark,8,9999,999900,50,false,true,false
+predator_drillgame,Rampaging Digtoise,ground,9,9999,999900,50,false,true,false
+predator_fairydragon,Rampaging Elphidran,dragon,9,9999,999900,50,false,true,false
+predator_featherostrich,Rampaging Dazemu,ground,8,9999,999900,50,false,true,false
+predator_flowerdinosaur,Rampaging Dinossom,grass|dragon,8,9999,999900,50,false,true,false
+predator_garm,Rampaging Direhowl,normal,8,9999,999900,50,false,true,false
+predator_ghostbeast,Rampaging Maraith,dark,9,9999,999900,50,false,true,false
+predator_goldenhorse,Rampaging Gildane,ground,0,9999,999900,50,false,true,false
+predator_gorilla,Rampaging Gorirat,normal,8,9999,999900,50,false,true,false
+predator_grasspanda,Rampaging Mossanda,grass,9,9999,999900,50,false,true,false
+predator_grimgirl,Rampaging Splatterina,dark,1,9999,999900,38,false,true,false
+predator_horus_water,Rampaging Faleris Aqua,water,10,9999,999900,50,false,true,false
+predator_lazydragon,Rampaging Relaxaurus,dragon|water,10,9999,999900,50,false,true,false
+predator_manticore_dark,Rampaging Blazehowl Noct,fire|dark,9,9999,999900,50,false,true,false
+predator_mushroomdragon,Rampaging Shroomer,grass,8,9999,999900,55,false,true,false
+predator_mysterymask,Rampaging Omascul,dark,1,9999,999900,50,false,true,false
+predator_nightbluehorse,Rampaging Starryon,dark,1,9999,999900,50,false,true,false
+predator_pinklizard,Rampaging Lovander,dark,9,9999,999900,30,false,true,false
+predator_purplespider,Rampaging Tarantriss,dark,1,9999,999900,50,false,true,false
+predator_redarmorbird,Rampaging Ragnahawk,fire,9,9999,999900,50,false,true,false
+predator_scorpionman,Rampaging Prixter,dark|ground,9,9999,999900,50,false,true,false
+predator_sifudog,Rampaging Dogen,normal,9,9999,999900,50,false,true,false
+predator_thunderdog,Rampaging Rayhound,electric,9,9999,999900,50,false,true,false
+predator_umihebi_fire,Rampaging Jormuntide Ignis,dragon|fire,10,9999,999900,50,false,true,false
+predator_volcanicmonster_ice,Rampaging Reptyro Cryst,ice|ground,9,9999,999900,50,false,true,false
+predator_werewolf_ice,Rampaging Loupmoon Cryst,ice,8,9999,999900,50,false,true,false
+predator_whitetiger_ground,Rampaging Cryolinx Terra,ground,9,9999,999900,50,false,true,false
+predator_yeti,Rampaging Wumpo,ice,9,9999,999900,50,false,true,false
+predator_hadesbird_electric,Rampaging Helzephyr Lux,dark|electric,9,9999,999900,50,false,true,false
+predator_ronin_dark,Rampaging Bushi Noct,fire|dark,9,9999,999900,50,false,true,false
+predator_candleghost,Rampaging Sootseer,dark|fire,9,9999,999900,50,false,true,false
+predator_baphomet_dark,Rampaging Incineram Noct,dark,9,9999,999900,50,false,true,false
+predator_volcanodragon,Rampaging Moldron,fire|ground,9,9999,999900,50,false,true,false
+predator_mummypal,Rampaging Gildra,dark|ground,8,9999,999900,50,false,true,false
+predator_suzaku,Rampaging Suzaku,fire,8,9999,999900,50,false,true,false
+predator_grassmammoth_ice,Rampaging Mammorest Cryst,ice|ground,8,9999,999900,50,false,true,false
+predator_redflowerbird,Rampaging Tropicaw,grass,8,9999,999900,50,false,true,false
+predator_grassminotaur_ice,Rampaging Elgrove Cryst,ice,8,9999,999900,60,false,true,false
+predator_pandagirl,Rampaging Leafan,grass,8,9999,999900,40,false,true,false
+predator_darkscorpion,Rampaging Menasting,dark|ground,8,9999,999900,50,false,true,false
+predator_snakegirl,Rampaging Venusa,dark,8,9999,999900,40,false,true,false
+predator_monochromequeen,Rampaging Solenne,dark|normal,8,9999,999900,30,false,true,false
+raid_darkmechadragon,Raid Xenolord,dark|dragon,10,9999,999900,50,false,true,true
+raid_darkmechadragon_2,Raid Xenolord Ultra,dark|dragon,10,9999,999900,50,false,true,true
+kitsunebi_ice,Foxparks Cryst,ice,1,2500,250000,50,true,false,false
+berrygoat_dark,Caprity Noct,dark,3,1940,194000,50,true,false,false
+pinkrabbit_grass,Ribbuny Botan,grass,1,2460,246000,50,true,false,false
+werewolf_ice,Loupmoon Cryst,ice,3,1290,129000,50,true,false,false
+amaterasuwolf_dark,Kitsun Noct,dark,6,800,80000,50,true,false,false
+raijindaughter_water,Dazzi Noct,dark|electric,2,1910,191000,20,true,false,false
+whitetiger_ground,Cryolinx Terra,ground,7,470,47000,50,true,false,false
+fengyundeeper_electric,Fenglope Lux,electric,3,900,90000,50,true,false,false
+horus_water,Faleris Aqua,water,9,450,45000,50,false,false,false
+snowtigerbeastman,Bastigor,ice,8,50,5000,60,false,false,false
+snakegirl,Venusa,dark,5,970,97000,40,true,false,false
+ghostanglerfish,Ghangler,dark|water,5,880,88000,50,true,false,false
+ghostanglerfish_fire,Ghangler Ignis,fire|water,6,720,72000,50,true,false,false
+icewitch,Icelyn,ice,4,1260,126000,50,true,false,false
+clownrabbit,Dupin,fire,7,520,52000,50,true,false,false
+legenddeer,Hartalis,normal,10,90,9000,50,false,false,false
+leafmomonga,Herbil,grass|normal,3,2630,263000,50,true,false,false
+smallyeti,Snugloo,ice,3,2390,239000,50,true,false,false
+icecrocodile,Munchill,ice|water,3,2130,213000,50,true,false,false
+cactusdoll,Needoll,grass,2,2420,242000,50,true,false,false
+cactusdoll_dark,Needoll Noct,dark|grass,3,1580,158000,50,true,false,false
+mushroomlady,Mycora,grass,6,760,76000,30,true,false,false
+stuffedshark,Finsider,water,3,2450,245000,50,true,false,false
+stuffedshark_fire,Finsider Ignis,water|fire,4,2240,581,50,true,false,false
+foxexorcist,Flaracle,fire,7,390,39000,50,true,false,false
+iceseal,Polapup,ice|water,5,1660,166000,50,true,false,false
+iceseal_ground,Polapup Terra,ice|ground,6,1100,110000,50,true,false,false
+cloverfairy,Clovee,grass|normal,2,2970,297000,50,true,false,false
+elecpomeranian,Puffolt,electric,2,2360,236000,50,true,false,false
+ghostblackcat,Wispaw,dark,5,2250,225000,50,true,false,false
+thiefbird,Roujay,dark,5,530,53000,60,true,false,false
+onighostgirl,Bakemi,dark,4,1540,154000,40,true,false,false
+plesiosaur,Braloha,grass|ground,8,1030,103000,50,true,false,false
+tropicalostrich,Palumba,grass,6,1240,124000,50,true,false,false
+grassgolem,Dualith,ground|grass,8,510,51000,50,true,false,false
+grassgolem_dark,Dualith Noct,ground|dark,8,250,25000,50,true,false,false
+snowpeafowl,Frostplume,ice,4,860,86000,50,true,false,false
+cubeturtle,Tetroise,ground,8,790,79000,50,true,false,false
+cubeturtle_neutral,Tetroise Primo,normal,8,200,20000,50,true,false,false
+longcat,Valentail,normal,2,1900,190000,50,true,false,false
+jellyfishghost,Jellroy,water|dark,3,2590,259000,50,true,false,false
+thunderfluffybird,Dynamoff,electric,6,1400,140000,50,true,false,false
+moonchild,Wistella,dark,2,1180,118000,50,true,false,false
+samuraidog,Pupperai,ground,2,2930,293000,50,true,false,false
+poseidonorca,Neptilius,water,20,160,16000,50,false,false,false
+swordcutlassfish,Skutlass,water,5,1420,142000,50,true,false,false
+swordcutlassfish_fire,Skutlass Ignis,water|fire,5,1590,159000,50,true,false,false
+yakushimamonster001,Green Slime,grass,3,3100,310000,50,false,false,false
+yakushimamonster001_blue,Blue Slime,water,3,3100,310000,50,false,false,false
+yakushimamonster001_red,Red Slime,fire,3,3100,310000,50,false,false,false
+yakushimamonster001_purple,Purple Slime,dark,3,3100,310000,50,false,false,false
+yakushimamonster001_pink,Illuminant Slime,normal,4,3100,310000,50,false,false,false
+yakushimamonster001_rainbow,Rainbow Slime,normal,4,3100,310000,50,false,false,false
+yakushimamonster002,Enchanted Sword,normal,3,3100,310000,50,false,false,false
+yakushimamonster003,Cave Bat,normal,3,3100,310000,50,false,false,false
+yakushimamonster003_purple,Illuminant Bat,normal,4,3100,310000,50,false,false,false
+yakushimaboss001,Eye of Cthulhu,dark,6,3100,310000,50,false,false,false
+boss_yakushimaboss001,Alpha Eye of Cthulhu,dark,6,3100,310000,50,false,true,false
+yakushimaboss001_small,Demon Eye,dark,3,3100,310000,50,false,false,false
+mummypal,Gildra,dark|ground,5,1170,117000,50,true,false,false
+kingsunfish,Solmora,water,4,1370,137000,50,true,false,false
+kingsunfish_thunder,Solmora Lux,water|electric,5,1000,100000,50,true,false,false
+monochromequeen,Solenne,dark|normal,7,280,28000,30,true,false,false
+elecsnail,Snock,electric,2,1780,178000,50,true,false,false
+elecsnail_ground,Snock Lux,electric|ground,3,1500,150000,50,true,false,false
+lanternbutler,Loomen,dark|fire,5,890,89000,50,true,false,false
+sumodog,Bulldosu,ground,4,1190,119000,50,true,false,false
+venusflytrap,Carnibora,grass,6,1700,170000,40,true,false,false
+fluffybird,Muffly,ice,2,2480,248000,50,true,false,false
+dandeliongirl,Souffline,grass,3,2000,200000,40,true,false,false
+raid_legenddeer,Raid Hartalis,water|grass,10,9999,999900,50,false,true,true
+raid_legenddeer_2,Raid Hartalis Ultra,water|grass,10,9999,999900,50,false,true,true
+clionetwins,Amione,water,2,2520,252000,40,true,false,false
+darkflamefox,Majex,dark|fire,5,1010,101000,40,true,false,false
+redflowerbird,Tropicaw,grass,5,1350,135000,50,true,false,false
+sleeverabbit,Lapure,normal,4,810,81000,40,true,false,false
+lotusdragon,Ophydia,grass|water,9,230,23000,50,true,false,false
+blueskydragon,Shaolong,dragon|water,9,40,4000,50,false,false,false
+pandagirl,Leafan,grass,7,1410,141000,40,true,false,false
+grassminotaur,Elgrove,grass,6,2020,202000,60,true,false,false
+grassminotaur_ice,Elgrove Cryst,ice,7,440,44000,60,true,false,false
+mothman,Silvance,grass,8,80,8000,50,false,false,false
+ghostdragon,Eidrolon,dragon|dark,7,300,30000,50,true,false,false
+ghostdragon_fire,Eidrolon Ignis,dragon|fire,8,140,14000,50,true,false,false
+flowerprince,Dandilord,grass|dark,8,60,6000,60,false,false,false
+worldtreedragon,Astralym,,10,10,1000,50,false,false,false
+kabukiman,Renjishi,fire,7,290,29000,60,true,false,false
+domearmordragon,Aegidron,dragon|ground,8,30,3000,50,true,false,false
