@@ -164,6 +164,61 @@ a {
   }
 }
 
+/* Anthropomorphic Pal cast, faded into the corners for a bit of character */
+.bg-character {
+  position: absolute;
+  width: min(30vw, 420px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.24;
+  filter: saturate(115%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 72%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-character {
+    opacity: 0.16;
+  }
+}
+
+.bg-character-tl {
+  top: -6vw;
+  left: -4vw;
+  animation: drift2 34s ease-in-out infinite;
+}
+
+.bg-character-tr {
+  top: -4vw;
+  right: -5vw;
+  animation: drift3 38s ease-in-out infinite;
+}
+
+.bg-character-bl {
+  bottom: -6vw;
+  left: -3vw;
+  animation: drift1 36s ease-in-out infinite;
+}
+
+.bg-character-br {
+  bottom: -5vw;
+  right: -4vw;
+  animation: drift2 30s ease-in-out infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-character {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .bg-character {
+    width: min(46vw, 320px);
+    opacity: 0.16;
+  }
+}
+
 @keyframes drift1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(4vw, 3vw) scale(1.08); }

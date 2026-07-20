@@ -2,6 +2,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import { BreedingPlanPage } from './pages/BreedingPlanPage';
 import { PairCalculatorPage } from './pages/PairCalculatorPage';
 import { PalsPage } from './pages/PalsPage';
+import { BackgroundCast } from './components/BackgroundCast';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <span className="bg-blob bg-blob-2" />
         <span className="bg-blob bg-blob-3" />
         <span className="bg-blob bg-blob-4" />
+        <BackgroundCast />
       </div>
       <header className="app-header">
         <div className="app-header-inner">
