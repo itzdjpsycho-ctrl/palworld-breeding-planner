@@ -21,8 +21,7 @@ export function PalPicker({ value, onChange, placeholder }: Props) {
     const list = q ? PALS.filter((p) => p.name.toLowerCase().includes(q)) : PALS;
     return list
       .map((p) => ({ p, idx: PALS.indexOf(p) }))
-      .sort((a, b) => a.p.name.localeCompare(b.p.name))
-      .slice(0, 40);
+      .sort((a, b) => a.p.name.localeCompare(b.p.name));
   }, [query]);
 
   // Close on outside click. A document-level listener (rather than the input's
