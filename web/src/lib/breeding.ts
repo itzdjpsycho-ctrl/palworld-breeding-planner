@@ -72,3 +72,214 @@ export function pairOptionsFor(targetIdx: number): PairOption[] {
       return x.a.name.localeCompare(y.a.name);
     });
 }
+
+export interface BreedStep {
+  aIdx: number;
+  bIdx: number;
+  childIdx: number;
+}
+
+export interface BreedChain {
+  steps: BreedStep[];
+}
+
+export interface MultipalResult {
+  /** Empty array means the target is already one of the owned Pals (no breeding needed). */
+  chains: BreedChain[];
+  /** True if the search space was capped before it could fully prove "no path exists". */
+  truncated: boolean;
+  /** True when the search fell back to the single-seed mode (only one owned Pal given). */
+  seedMode: boolean;
+}
+
+const DEFAULT_MAX_DEPTH = 6;
+const DEFAULT_MAX_PATHS = 4;
+const DEFAULT_MAX_STATES = 200000;
+
+function sortedUnique(idxs: number[]): number[] {
+  return [...new Set(idxs)].sort((a, b) => a - b);
+}
+
+/**
+ * Forward search: starting from exactly the given owned Pals (no outside help), repeatedly
+ * breed any two currently-available Pals and add the result to the pool, looking for the
+ * shortest sequence of breeding events that produces the target. Requires 2+ owned Pals,
+ * since a single Pal has no partner to breed with.
+ */
+function findChainsFromInventory(
+  ownedIdxs: number[],
+  targetIdx: number,
+  requiredIdxs: number[],
+  maxDepth: number,
+  maxPaths: number,
+  maxStates: number,
+): { chains: BreedChain[]; truncated: boolean } {
+  const startArr = sortedUnique(ownedIdxs);
+  if (startArr.includes(targetIdx)) return { chains: [{ steps: [] }], truncated: false };
+
+  let frontier: { arr: number[]; steps: BreedStep[] }[] = [{ arr: startArr, steps: [] }];
+  const visited = new Set<string>([startArr.join(',')]);
+  let statesExplored = 0;
+  let truncated = false;
+
+  for (let depth = 0; depth < maxDepth; depth++) {
+    const nextFrontier: { arr: number[]; steps: BreedStep[] }[] = [];
+    const foundThisDepth: BreedStep[][] = [];
+
+    frontierLoop: for (const entry of frontier) {
+      const arr = entry.arr;
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          const a = arr[i];
+          const b = arr[j];
+          const childIdx = COMBOS[a][b];
+          if (arr.includes(childIdx)) continue;
+
+          const newArr = [...arr, childIdx].sort((x, y) => x - y);
+          const key = newArr.join(',');
+          if (visited.has(key)) continue;
+          visited.add(key);
+          statesExplored++;
+
+          const steps = [...entry.steps, { aIdx: a, bIdx: b, childIdx }];
+          if (childIdx === targetIdx) {
+            foundThisDepth.push(steps);
+          } else {
+            nextFrontier.push({ arr: newArr, steps });
+          }
+
+          if (statesExplored > maxStates) {
+            truncated = true;
+            break frontierLoop;
+          }
+        }
+      }
+    }
+
+    if (foundThisDepth.length > 0) {
+      const qualifying = requiredIdxs.length
+        ? foundThisDepth.filter((steps) =>
+            requiredIdxs.every((r) => steps.some((s) => s.aIdx === r || s.bIdx === r)),
+          )
+        : foundThisDepth;
+      if (qualifying.length > 0) {
+        return { chains: qualifying.slice(0, maxPaths).map((steps) => ({ steps })), truncated };
+      }
+      // Target is reachable, but not via a chain that uses every locked Pal yet — keep
+      // searching deeper in case a longer chain satisfies the lock constraint.
+    }
+
+    if (truncated || nextFrontier.length === 0) break;
+    frontier = nextFrontier;
+  }
+
+  return { chains: [], truncated };
+}
+
+/**
+ * Backward search: starting from the target, walk its parent-pair options (cheapest/most
+ * wild-catchable first) looking for the shortest ancestry line that passes through the seed
+ * Pal, treating every other parent along the way as freely obtainable. Used when only one
+ * owned Pal is given, matching "search across all Pals" rather than a fixed inventory.
+ */
+function findChainToSeed(seedIdx: number, targetIdx: number, maxDepth: number): BreedChain | null {
+  if (seedIdx === targetIdx) return { steps: [] };
+
+  const memo = new Map<number, { dist: number; aIdx: number; bIdx: number; via: 'a' | 'b' } | null>();
+  const visiting = new Set<number>();
+
+  function distanceFrom(node: number): number {
+    return node === seedIdx ? 0 : (solve(node)?.dist ?? Infinity);
+  }
+
+  function solve(node: number): { dist: number; aIdx: number; bIdx: number; via: 'a' | 'b' } | null {
+    if (memo.has(node)) return memo.get(node) ?? null;
+    if (visiting.has(node)) return null;
+    visiting.add(node);
+
+    let best: { dist: number; aIdx: number; bIdx: number; via: 'a' | 'b' } | null = null;
+    for (const opt of pairOptionsFor(node)) {
+      const da = distanceFrom(opt.aIdx);
+      const db = distanceFrom(opt.bIdx);
+      const via: 'a' | 'b' = da <= db ? 'a' : 'b';
+      const d = 1 + Math.min(da, db);
+      if (d <= maxDepth && (!best || d < best.dist)) {
+        best = { dist: d, aIdx: opt.aIdx, bIdx: opt.bIdx, via };
+        if (best.dist === 1) break;
+      }
+    }
+    visiting.delete(node);
+    memo.set(node, best);
+    return best;
+  }
+
+  const result = solve(targetIdx);
+  if (!result) return null;
+
+  const backward: BreedStep[] = [];
+  let cur = targetIdx;
+  while (cur !== seedIdx) {
+    const r = memo.get(cur);
+    if (!r) break;
+    backward.push({ aIdx: r.aIdx, bIdx: r.bIdx, childIdx: cur });
+    cur = r.via === 'a' ? r.aIdx : r.bIdx;
+  }
+  backward.reverse();
+  return { steps: backward };
+}
+
+export interface MultipalOptions {
+  maxDepth?: number;
+  maxPaths?: number;
+  maxStates?: number;
+  lockedIdxs?: number[];
+}
+
+/**
+ * Find breeding chains from a pool of owned Pals to a target. With 2+ owned Pals, only those
+ * Pals (plus whatever they produce along the way) are used. With exactly 1 owned Pal, the
+ * search instead looks across every Pal for the shortest ancestry line that uses it.
+ */
+export function findMultipalChains(
+  ownedIdxs: number[],
+  targetIdx: number,
+  options: MultipalOptions = {},
+): MultipalResult {
+  const maxDepth = options.maxDepth ?? DEFAULT_MAX_DEPTH;
+  const maxPaths = options.maxPaths ?? DEFAULT_MAX_PATHS;
+  const maxStates = options.maxStates ?? DEFAULT_MAX_STATES;
+  const owned = sortedUnique(ownedIdxs);
+
+  if (owned.length <= 1) {
+    const seedIdx = owned[0];
+    const chain = seedIdx === undefined ? null : findChainToSeed(seedIdx, targetIdx, maxDepth);
+    return { chains: chain ? [chain] : [], truncated: false, seedMode: true };
+  }
+
+  const lockedIdxs = (options.lockedIdxs ?? []).filter((i) => owned.includes(i));
+  const { chains, truncated } = findChainsFromInventory(
+    owned,
+    targetIdx,
+    lockedIdxs,
+    maxDepth,
+    maxPaths,
+    maxStates,
+  );
+  return { chains, truncated, seedMode: false };
+}
+
+/** Every distinct Pal directly producible by pairing two of the given owned Pals. */
+export function possibleChildren(ownedIdxs: number[]): { child: Pal; aIdx: number; bIdx: number }[] {
+  const owned = sortedUnique(ownedIdxs);
+  const seen = new Set<number>();
+  const results: { child: Pal; aIdx: number; bIdx: number }[] = [];
+  for (let i = 0; i < owned.length; i++) {
+    for (let j = i + 1; j < owned.length; j++) {
+      const childIdx = COMBOS[owned[i]][owned[j]];
+      if (seen.has(childIdx)) continue;
+      seen.add(childIdx);
+      results.push({ child: PALS[childIdx], aIdx: owned[i], bIdx: owned[j] });
+    }
+  }
+  return results.sort((a, b) => a.child.name.localeCompare(b.child.name));
+}

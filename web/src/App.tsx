@@ -1,6 +1,7 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { BreedingPlanPage } from './pages/BreedingPlanPage';
 import { PairCalculatorPage } from './pages/PairCalculatorPage';
+import { MultipalBreederPage } from './pages/MultipalBreederPage';
 import { PalsPage } from './pages/PalsPage';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
             <NavLink to="/pair-calculator" className={({ isActive }) => (isActive ? 'active' : '')}>
               Pair Calculator
             </NavLink>
+            <NavLink to="/multipal-breeder" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Multipal Breeder
+            </NavLink>
             <NavLink to="/pals" className={({ isActive }) => (isActive ? 'active' : '')}>
               Pals
             </NavLink>
@@ -36,6 +40,7 @@ function App() {
           <Route path="/" element={<BreedingPlanPage />} />
           <Route path="/breeding-plan" element={<BreedingPlanPage />} />
           <Route path="/pair-calculator" element={<PairCalculatorPage />} />
+          <Route path="/multipal-breeder" element={<MultipalBreederPage />} />
           <Route path="/pals" element={<PalsPage />} />
         </Routes>
       </main>

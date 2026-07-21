@@ -207,7 +207,9 @@ a {
 
 .app-header nav {
   display: flex;
-  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 2px;
   background: var(--accent-bg);
   padding: 4px;
   border-radius: 999px;
@@ -216,9 +218,9 @@ a {
 .app-header nav a {
   text-decoration: none;
   color: var(--text);
-  padding: 8px 14px;
+  padding: 7px 11px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
   transition: color 0.15s, background 0.15s;
@@ -737,7 +739,299 @@ select:focus {
   margin-top: 12px;
 }
 
+/* Multipal Breeder */
+.multipal-parents {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.multipal-parent-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 84px;
+  padding: 10px 6px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+}
+
+.multipal-parent-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-h);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.multipal-remove-btn,
+.multipal-lock-btn {
+  position: absolute;
+  top: -8px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-solid);
+  color: var(--text-h);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.multipal-remove-btn {
+  left: -8px;
+  color: #f87171;
+}
+
+.multipal-lock-btn {
+  right: -8px;
+}
+
+.multipal-lock-btn.locked {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.multipal-add-slot {
+  position: relative;
+}
+
+.multipal-add-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 84px;
+  height: 100px;
+  border-radius: 14px;
+  border: 1.5px dashed var(--accent-border);
+  background: none;
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.multipal-add-btn span {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.multipal-add-btn:hover {
+  background: var(--accent-bg);
+  border-style: solid;
+}
+
+.multipal-add-picker {
+  position: absolute;
+  z-index: 15;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 280px;
+}
+
+.multipal-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  color: var(--wild-color);
+  background: var(--wild-bg);
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.btn-primary:hover:not(:disabled),
+.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.advanced-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--breed-color);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-bottom: 8px;
+}
+
+.advanced-panel {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.advanced-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.advanced-panel input[type='number'] {
+  width: 80px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-solid);
+  color: var(--text-h);
+}
+
+.advanced-panel select {
+  width: auto;
+  padding: 6px 10px;
+}
+
+.advanced-note {
+  flex-basis: 100%;
+  font-size: 12px;
+  color: var(--text);
+  max-width: 60ch;
+}
+
+.multipal-results {
+  margin-top: 12px;
+}
+
+.multipal-chains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.chain-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+}
+
+.chain-step {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 6px;
+}
+
+.chain-check {
+  color: var(--wild-color);
+  font-weight: 700;
+}
+
+.chain-op {
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 700;
+  text-align: center;
+}
+
+.chain-pal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.chain-pal-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.chain-pal-name.owned {
+  color: var(--wild-color);
+}
+
+.multipal-children-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.multipal-child-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.multipal-child-source {
+  font-size: 12px;
+  color: var(--text);
+}
+
 @media (max-width: 640px) {
+  .chain-step {
+    column-gap: 3px;
+  }
+  .chain-pal-name {
+    font-size: 10px;
+  }
   .pair-item {
     grid-template-columns: 1fr;
   }
