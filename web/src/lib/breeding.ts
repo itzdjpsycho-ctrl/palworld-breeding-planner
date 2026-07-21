@@ -102,9 +102,11 @@ function sortedUnique(idxs: number[]): number[] {
 
 /**
  * Forward search: starting from exactly the given owned Pals (no outside help), repeatedly
- * breed any two currently-available Pals and add the result to the pool, looking for the
- * shortest sequence of breeding events that produces the target. Requires 2+ owned Pals,
- * since a single Pal has no partner to breed with.
+ * breed any two currently-available Pals and add the result to the pool, looking for breeding
+ * chains that produce the target. Requires 2+ owned Pals, since a single Pal has no partner to
+ * breed with. Keeps searching deeper (up to maxDepth) even after the first chain is found, so
+ * that shorter chains are always listed first but alternative, slightly longer routes are
+ * still surfaced up to maxPaths — rather than stopping at the very first depth with any hit.
  */
 function findChainsFromInventory(
   ownedIdxs: number[],
@@ -121,10 +123,13 @@ function findChainsFromInventory(
   const visited = new Set<string>([startArr.join(',')]);
   let statesExplored = 0;
   let truncated = false;
+  const results: BreedChain[] = [];
 
-  for (let depth = 0; depth < maxDepth; depth++) {
+  const qualifies = (steps: BreedStep[]) =>
+    requiredIdxs.every((r) => steps.some((s) => s.aIdx === r || s.bIdx === r));
+
+  for (let depth = 0; depth < maxDepth && results.length < maxPaths; depth++) {
     const nextFrontier: { arr: number[]; steps: BreedStep[] }[] = [];
-    const foundThisDepth: BreedStep[][] = [];
 
     frontierLoop: for (const entry of frontier) {
       const arr = entry.arr;
@@ -143,7 +148,10 @@ function findChainsFromInventory(
 
           const steps = [...entry.steps, { aIdx: a, bIdx: b, childIdx }];
           if (childIdx === targetIdx) {
-            foundThisDepth.push(steps);
+            if (qualifies(steps)) {
+              results.push({ steps });
+              if (results.length >= maxPaths) break frontierLoop;
+            }
           } else {
             nextFrontier.push({ arr: newArr, steps });
           }
@@ -156,24 +164,11 @@ function findChainsFromInventory(
       }
     }
 
-    if (foundThisDepth.length > 0) {
-      const qualifying = requiredIdxs.length
-        ? foundThisDepth.filter((steps) =>
-            requiredIdxs.every((r) => steps.some((s) => s.aIdx === r || s.bIdx === r)),
-          )
-        : foundThisDepth;
-      if (qualifying.length > 0) {
-        return { chains: qualifying.slice(0, maxPaths).map((steps) => ({ steps })), truncated };
-      }
-      // Target is reachable, but not via a chain that uses every locked Pal yet — keep
-      // searching deeper in case a longer chain satisfies the lock constraint.
-    }
-
     if (truncated || nextFrontier.length === 0) break;
     frontier = nextFrontier;
   }
 
-  return { chains: [], truncated };
+  return { chains: results, truncated };
 }
 
 /**
