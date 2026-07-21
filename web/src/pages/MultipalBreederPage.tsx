@@ -3,6 +3,7 @@ import {
   PALS,
   findMultipalChains,
   possibleChildren,
+  indexOfId,
   type MultipalResult,
 } from '../lib/breeding';
 import { PalPicker } from '../components/PalPicker';
@@ -70,6 +71,17 @@ export function MultipalBreederPage() {
     if (parents.length < 2) return;
     setResult(null);
     setChildren(possibleChildren(ownedIdxs, maxDepth));
+  }
+
+  function handleSelectChild(idx: number) {
+    setTargetIdx(idx);
+    setResult(findMultipalChains(ownedIdxs, idx, { maxDepth, maxPaths, maxStates, lockedIdxs }));
+  }
+
+  function handleClearResults() {
+    setTargetIdx(null);
+    setResult(null);
+    setChildren(null);
   }
 
   const canCalculate = parents.length > 0 && targetIdx !== null;
@@ -182,6 +194,45 @@ export function MultipalBreederPage() {
         </div>
       )}
 
+      {children && (
+        <div className="multipal-results">
+          <p className="pair-count">
+            {children.length} distinct Pal{children.length === 1 ? '' : 's'} reachable by breeding
+            your current parents within {maxDepth} breed{maxDepth === 1 ? '' : 's'} (click one to
+            set it as the desired child).{' '}
+            <button type="button" className="link-btn" onClick={handleClearResults}>
+              Clear Results
+            </button>
+          </p>
+          {children.length === 0 ? (
+            <p className="empty-note">Add at least two parents to see what they can produce.</p>
+          ) : (
+            <div className="multipal-children-grid">
+              {children.map(({ child, aIdx, bIdx, direct, depth }) => {
+                const idx = indexOfId(child.id)!;
+                return (
+                  <button
+                    type="button"
+                    key={child.id}
+                    className={`multipal-child-card${targetIdx === idx ? ' selected' : ''}`}
+                    onClick={() => handleSelectChild(idx)}
+                  >
+                    <PalImage pal={child} size={48} />
+                    <div>
+                      <div className="multipal-parent-name">{child.name}</div>
+                      <div className="multipal-child-source">
+                        from {PALS[aIdx].name} + {PALS[bIdx].name}
+                        {!direct && ` (${depth} breeds)`}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
       {result && (
         <div className="multipal-results">
           {result.seedMode && parents.length === 1 && (
@@ -211,34 +262,6 @@ export function MultipalBreederPage() {
                 ))}
               </div>
             </>
-          )}
-        </div>
-      )}
-
-      {children && (
-        <div className="multipal-results">
-          <p className="pair-count">
-            {children.length} distinct Pal{children.length === 1 ? '' : 's'} reachable by breeding
-            your current parents within {maxDepth} breed{maxDepth === 1 ? '' : 's'} — including
-            multi-generation chains, not just direct pairs.
-          </p>
-          {children.length === 0 ? (
-            <p className="empty-note">Add at least two parents to see what they can produce.</p>
-          ) : (
-            <div className="multipal-children-grid">
-              {children.map(({ child, aIdx, bIdx, direct, depth }) => (
-                <div key={child.id} className="multipal-child-card">
-                  <PalImage pal={child} size={48} />
-                  <div>
-                    <div className="multipal-parent-name">{child.name}</div>
-                    <div className="multipal-child-source">
-                      from {PALS[aIdx].name} + {PALS[bIdx].name}
-                      {!direct && ` (${depth} breeds)`}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
           )}
         </div>
       )}

@@ -274,40 +274,49 @@ export interface ReachablePal {
 }
 
 /**
- * Every distinct Pal reachable by repeatedly breeding pairs from the owned pool within
- * maxDepth generations — the owned Pals plus everything they can produce, plus everything
- * those results can produce, and so on, up to the given depth.
+ * Every distinct Pal reachable by repeatedly breeding from the owned pool within maxDepth
+ * generations. Each new generation only breeds the just-produced Pal against the rest of the
+ * pool (rather than re-combining every earlier intermediate with every other one) — this
+ * mirrors how you'd actually breed forward from your latest hatch, and keeps the reachable set
+ * from ballooning into pairings that don't represent a realistic breeding order.
  */
 export function possibleChildren(ownedIdxs: number[], maxDepth = DEFAULT_MAX_DEPTH): ReachablePal[] {
   const owned = sortedUnique(ownedIdxs);
   const ownedSet = new Set(owned);
-  const available = [...owned];
-  const inSet = new Set(owned);
-  const producedBy = new Map<number, { aIdx: number; bIdx: number; depth: number }>();
+  const found = new Map<number, { aIdx: number; bIdx: number; depth: number }>();
 
-  let changed = true;
-  let depth = 0;
-  while (changed && depth < maxDepth) {
-    changed = false;
-    depth++;
-    const roundEnd = available.length;
-    for (let i = 0; i < roundEnd; i++) {
-      for (let j = i + 1; j < roundEnd; j++) {
-        const childIdx = COMBOS[available[i]][available[j]];
-        if (!inSet.has(childIdx)) {
-          inSet.add(childIdx);
-          producedBy.set(childIdx, { aIdx: available[i], bIdx: available[j], depth });
-          available.push(childIdx);
-          changed = true;
+  type State = { pool: number[]; lastAdded: number | null; depth: number };
+  const queue: State[] = [{ pool: owned, lastAdded: null, depth: 0 }];
+  const visitedStates = new Set<string>([owned.join(',')]);
+
+  for (let qi = 0; qi < queue.length; qi++) {
+    const { pool, lastAdded, depth } = queue[qi];
+    const pairs: [number, number][] = [];
+    if (lastAdded === null) {
+      for (let i = 0; i < pool.length; i++)
+        for (let j = i + 1; j < pool.length; j++) pairs.push([pool[i], pool[j]]);
+    } else {
+      for (const p of pool) if (p !== lastAdded) pairs.push([lastAdded, p]);
+    }
+
+    for (const [a, b] of pairs) {
+      const childIdx = COMBOS[a][b];
+      if (!found.has(childIdx) && !ownedSet.has(childIdx)) {
+        found.set(childIdx, { aIdx: a, bIdx: b, depth: depth + 1 });
+      }
+      if (!pool.includes(childIdx) && depth + 1 < maxDepth) {
+        const newPool = [...pool, childIdx].sort((x, y) => x - y);
+        const key = childIdx + '|' + newPool.join(',');
+        if (!visitedStates.has(key)) {
+          visitedStates.add(key);
+          queue.push({ pool: newPool, lastAdded: childIdx, depth: depth + 1 });
         }
       }
     }
   }
 
   const results: ReachablePal[] = [];
-  for (const idx of available) {
-    if (ownedSet.has(idx)) continue;
-    const pair = producedBy.get(idx)!;
+  for (const [idx, pair] of found) {
     results.push({
       child: PALS[idx],
       aIdx: pair.aIdx,
