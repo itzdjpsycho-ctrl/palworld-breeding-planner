@@ -217,20 +217,21 @@ export function MultipalBreederPage() {
       {children && (
         <div className="multipal-results">
           <p className="pair-count">
-            {children.length} distinct Pal{children.length === 1 ? '' : 's'} producible from your
-            current parents.
+            {children.length} distinct Pal{children.length === 1 ? '' : 's'} reachable by breeding
+            your current parents — including multi-generation chains, not just direct pairs.
           </p>
           {children.length === 0 ? (
             <p className="empty-note">Add at least two parents to see what they can produce.</p>
           ) : (
             <div className="multipal-children-grid">
-              {children.map(({ child, aIdx, bIdx }) => (
+              {children.map(({ child, aIdx, bIdx, direct }) => (
                 <div key={child.id} className="multipal-child-card">
                   <PalImage pal={child} size={48} />
                   <div>
                     <div className="multipal-parent-name">{child.name}</div>
                     <div className="multipal-child-source">
                       from {PALS[aIdx].name} + {PALS[bIdx].name}
+                      {!direct && ' (bred)'}
                     </div>
                   </div>
                 </div>

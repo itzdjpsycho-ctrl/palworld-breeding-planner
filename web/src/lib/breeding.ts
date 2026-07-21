@@ -263,18 +263,56 @@ export function findMultipalChains(
   return { chains, truncated, seedMode: false };
 }
 
-/** Every distinct Pal directly producible by pairing two of the given owned Pals. */
-export function possibleChildren(ownedIdxs: number[]): { child: Pal; aIdx: number; bIdx: number }[] {
+export interface ReachablePal {
+  child: Pal;
+  aIdx: number;
+  bIdx: number;
+  /** True if both parents shown are Pals you own; false if one is a Pal you'd need to breed first. */
+  direct: boolean;
+}
+
+/**
+ * Every distinct Pal reachable by repeatedly breeding pairs from the owned pool — not just
+ * one generation, but the full closure (owned Pals + everything they can produce, plus
+ * everything those results can produce, and so on).
+ */
+export function possibleChildren(ownedIdxs: number[]): ReachablePal[] {
   const owned = sortedUnique(ownedIdxs);
-  const seen = new Set<number>();
-  const results: { child: Pal; aIdx: number; bIdx: number }[] = [];
-  for (let i = 0; i < owned.length; i++) {
-    for (let j = i + 1; j < owned.length; j++) {
-      const childIdx = COMBOS[owned[i]][owned[j]];
-      if (seen.has(childIdx)) continue;
-      seen.add(childIdx);
-      results.push({ child: PALS[childIdx], aIdx: owned[i], bIdx: owned[j] });
+  const ownedSet = new Set(owned);
+  const available = [...owned];
+  const inSet = new Set(owned);
+  const producedBy = new Map<number, { aIdx: number; bIdx: number }>();
+
+  let changed = true;
+  while (changed) {
+    changed = false;
+    const roundEnd = available.length;
+    for (let i = 0; i < roundEnd; i++) {
+      for (let j = i + 1; j < roundEnd; j++) {
+        const childIdx = COMBOS[available[i]][available[j]];
+        if (!inSet.has(childIdx)) {
+          inSet.add(childIdx);
+          producedBy.set(childIdx, { aIdx: available[i], bIdx: available[j] });
+          available.push(childIdx);
+          changed = true;
+        }
+      }
     }
   }
-  return results.sort((a, b) => a.child.name.localeCompare(b.child.name));
+
+  const results: ReachablePal[] = [];
+  for (const idx of available) {
+    if (ownedSet.has(idx)) continue;
+    const pair = producedBy.get(idx)!;
+    results.push({
+      child: PALS[idx],
+      aIdx: pair.aIdx,
+      bIdx: pair.bIdx,
+      direct: ownedSet.has(pair.aIdx) && ownedSet.has(pair.bIdx),
+    });
+  }
+  return results.sort((a, b) => {
+    if (a.direct !== b.direct) return a.direct ? -1 : 1;
+    return a.child.name.localeCompare(b.child.name);
+  });
 }
