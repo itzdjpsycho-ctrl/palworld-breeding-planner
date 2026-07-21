@@ -10,6 +10,9 @@
 // The matrix (MIT licensed, from github.com/beckerfelipee/PalworldBreedingCalculator) is the
 // ground truth for breeding outcomes: it already bakes in Pocketpair's special-combo overrides
 // (e.g. Relaxaurus x Sparkit -> Relaxaurus Lux) that the combi-rank formula alone can't produce.
+//
+// data-src/ComboOverrides.csv patches individual pairs where that matrix has been found to be
+// wrong (confirmed against another source), without having to touch the vendored matrix itself.
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -67,6 +70,46 @@ function loadImages() {
     map.set(line.slice(0, idx).trim(), line.slice(idx + 1).trim());
   }
   return map;
+}
+
+// Minimal CSV line parser that handles double-quoted fields containing commas.
+function parseCsvRow(line) {
+  const fields = [];
+  let field = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQuotes) {
+      if (c === '"' && line[i + 1] === '"') {
+        field += '"';
+        i++;
+      } else if (c === '"') {
+        inQuotes = false;
+      } else {
+        field += c;
+      }
+    } else if (c === '"') {
+      inQuotes = true;
+    } else if (c === ',') {
+      fields.push(field);
+      field = '';
+    } else {
+      field += c;
+    }
+  }
+  fields.push(field);
+  return fields;
+}
+
+function loadComboOverrides() {
+  const [, ...lines] = readFileSync(path.join(ROOT, 'data-src', 'ComboOverrides.csv'), 'utf8')
+    .replace(/^﻿/, '')
+    .trim()
+    .split(/\r?\n/);
+  return lines.map((line) => {
+    const [parentA, parentB, child, note] = parseCsvRow(line);
+    return { parentA, parentB, child, note };
+  });
 }
 
 function loadMatrix() {
@@ -130,6 +173,18 @@ function main() {
       return idx;
     }),
   );
+
+  for (const { parentA, parentB, child, note } of loadComboOverrides()) {
+    const aIdx = nameToIndex.get(parentA);
+    const bIdx = nameToIndex.get(parentB);
+    const childIdx = nameToIndex.get(child);
+    if (aIdx === undefined || bIdx === undefined || childIdx === undefined) {
+      throw new Error(`ComboOverrides.csv: unknown pal name in "${parentA} + ${parentB} = ${child}"`);
+    }
+    combos[aIdx][bIdx] = childIdx;
+    combos[bIdx][aIdx] = childIdx;
+    console.log(`Override: ${parentA} + ${parentB} = ${child} (${note})`);
+  }
 
   // Reverse index: for each child pal index, every unordered parent-index pair that produces it.
   const reverse = pals.map(() => []);
