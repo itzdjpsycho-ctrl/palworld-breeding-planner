@@ -269,30 +269,34 @@ export interface ReachablePal {
   bIdx: number;
   /** True if both parents shown are Pals you own; false if one is a Pal you'd need to breed first. */
   direct: boolean;
+  /** Number of breeding generations needed to reach this Pal from the owned pool. */
+  depth: number;
 }
 
 /**
- * Every distinct Pal reachable by repeatedly breeding pairs from the owned pool — not just
- * one generation, but the full closure (owned Pals + everything they can produce, plus
- * everything those results can produce, and so on).
+ * Every distinct Pal reachable by repeatedly breeding pairs from the owned pool within
+ * maxDepth generations — the owned Pals plus everything they can produce, plus everything
+ * those results can produce, and so on, up to the given depth.
  */
-export function possibleChildren(ownedIdxs: number[]): ReachablePal[] {
+export function possibleChildren(ownedIdxs: number[], maxDepth = DEFAULT_MAX_DEPTH): ReachablePal[] {
   const owned = sortedUnique(ownedIdxs);
   const ownedSet = new Set(owned);
   const available = [...owned];
   const inSet = new Set(owned);
-  const producedBy = new Map<number, { aIdx: number; bIdx: number }>();
+  const producedBy = new Map<number, { aIdx: number; bIdx: number; depth: number }>();
 
   let changed = true;
-  while (changed) {
+  let depth = 0;
+  while (changed && depth < maxDepth) {
     changed = false;
+    depth++;
     const roundEnd = available.length;
     for (let i = 0; i < roundEnd; i++) {
       for (let j = i + 1; j < roundEnd; j++) {
         const childIdx = COMBOS[available[i]][available[j]];
         if (!inSet.has(childIdx)) {
           inSet.add(childIdx);
-          producedBy.set(childIdx, { aIdx: available[i], bIdx: available[j] });
+          producedBy.set(childIdx, { aIdx: available[i], bIdx: available[j], depth });
           available.push(childIdx);
           changed = true;
         }
@@ -308,11 +312,12 @@ export function possibleChildren(ownedIdxs: number[]): ReachablePal[] {
       child: PALS[idx],
       aIdx: pair.aIdx,
       bIdx: pair.bIdx,
-      direct: ownedSet.has(pair.aIdx) && ownedSet.has(pair.bIdx),
+      direct: pair.depth === 1,
+      depth: pair.depth,
     });
   }
   return results.sort((a, b) => {
-    if (a.direct !== b.direct) return a.direct ? -1 : 1;
+    if (a.depth !== b.depth) return a.depth - b.depth;
     return a.child.name.localeCompare(b.child.name);
   });
 }

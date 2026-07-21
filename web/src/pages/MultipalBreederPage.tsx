@@ -69,7 +69,7 @@ export function MultipalBreederPage() {
   function handleListChildren() {
     if (parents.length < 2) return;
     setResult(null);
-    setChildren(possibleChildren(ownedIdxs));
+    setChildren(possibleChildren(ownedIdxs, maxDepth));
   }
 
   const canCalculate = parents.length > 0 && targetIdx !== null;
@@ -144,7 +144,7 @@ export function MultipalBreederPage() {
       {showAdvanced && (
         <div className="advanced-panel">
           <label>
-            Max chain depth
+            Max breeds deep
             <input
               type="number"
               min={1}
@@ -174,9 +174,10 @@ export function MultipalBreederPage() {
             </select>
           </label>
           <p className="advanced-note">
-            By default, the calculator checks up to 200k potential chains. With a lot of owned
-            Pals it might stop before finding a result — raise this to search further, at the
-            cost of taking longer to calculate.
+            Max breeds deep applies to both Calculate and List Possible Children. By default, the
+            calculator checks up to 200k potential chains. With a lot of owned Pals it might stop
+            before finding a result — raise this to search further, at the cost of taking longer
+            to calculate.
           </p>
         </div>
       )}
@@ -218,20 +219,21 @@ export function MultipalBreederPage() {
         <div className="multipal-results">
           <p className="pair-count">
             {children.length} distinct Pal{children.length === 1 ? '' : 's'} reachable by breeding
-            your current parents — including multi-generation chains, not just direct pairs.
+            your current parents within {maxDepth} breed{maxDepth === 1 ? '' : 's'} — including
+            multi-generation chains, not just direct pairs.
           </p>
           {children.length === 0 ? (
             <p className="empty-note">Add at least two parents to see what they can produce.</p>
           ) : (
             <div className="multipal-children-grid">
-              {children.map(({ child, aIdx, bIdx, direct }) => (
+              {children.map(({ child, aIdx, bIdx, direct, depth }) => (
                 <div key={child.id} className="multipal-child-card">
                   <PalImage pal={child} size={48} />
                   <div>
                     <div className="multipal-parent-name">{child.name}</div>
                     <div className="multipal-child-source">
                       from {PALS[aIdx].name} + {PALS[bIdx].name}
-                      {!direct && ' (bred)'}
+                      {!direct && ` (${depth} breeds)`}
                     </div>
                   </div>
                 </div>
